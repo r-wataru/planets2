@@ -1,0 +1,11 @@
+== README
+
+This is Planets Web Site Demo
+
+Things you may want to cover:
+
+* Ruby version 2.1.0
+
+* Rails version 4.1.5
+
+* Database Mysql2
