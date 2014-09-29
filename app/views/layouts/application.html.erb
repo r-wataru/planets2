@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Planets</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application", :media => "all" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= render 'shared/header' %>
-<%= yield %>
-<%= render 'shared/footer' %>
-</body>
+  <head>
+    <title>Planets</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'shared/header' %>
+    <div id="wrapper">
+      <%= yield %>
+    </div>
+  </body>
 </html>

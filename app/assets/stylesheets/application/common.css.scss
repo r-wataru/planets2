@@ -1,0 +1,35 @@
+/* common.css.scss */
+
+body {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 100px;
+}
+
+#wrapper {
+  width: 1024px;
+  margin: 0 auto 50px auto;
+  display: block;
+}
+
+.member {
+  width: 184px;
+  height: 320px;
+  float: left;
+  display: block;
+  margin: 10px;
+  .panel-body .thumbnailBox .noImage {
+    width: 152px;
+    height: 152px;
+    display: table-cell;
+    text-align: center;
+    font-weight: bold;
+    background: gray;
+    color: white;
+    vertical-align: middle;
+  }
+  .panel-body .descriptionBox {
+    margin-top: 5px;
+  }
+}
