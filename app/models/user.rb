@@ -10,6 +10,7 @@
 #  age          :integer
 #  logged_at    :datetime
 #  description  :text
+#  deleted_at   :datetime
 #  created_at   :datetime
 #  updated_at   :datetime
 #

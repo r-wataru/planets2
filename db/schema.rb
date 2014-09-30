@@ -11,16 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929070036) do
+ActiveRecord::Schema.define(version: 20140930024033) do
 
   create_table "emails", force: true do |t|
     t.integer  "user_id",    null: false
     t.string   "address",    null: false
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "emails", ["address"], name: "index_emails_on_address", unique: true, using: :btree
+
+  create_table "individual_results", force: true do |t|
+    t.integer  "user_id",                       null: false
+    t.integer  "season_id",                     null: false
+    t.integer  "plate_appearances", default: 0, null: false
+    t.integer  "at_bats",           default: 0, null: false
+    t.integer  "single",            default: 0, null: false
+    t.integer  "double",            default: 0, null: false
+    t.integer  "triple",            default: 0, null: false
+    t.integer  "home_run",          default: 0, null: false
+    t.integer  "base_on_balls",     default: 0, null: false
+    t.integer  "hit_by_pitches",    default: 0, null: false
+    t.integer  "sacrifice_bunts",   default: 0, null: false
+    t.integer  "sacrifice_flies",   default: 0, null: false
+    t.integer  "errors",            default: 0, null: false
+    t.integer  "infield_grounder",  default: 0, null: false
+    t.integer  "outfield_grounder", default: 0, null: false
+    t.integer  "infield_fly",       default: 0, null: false
+    t.integer  "outfield_fly",      default: 0, null: false
+    t.integer  "infield_linera",    default: 0, null: false
+    t.integer  "out_linera",        default: 0, null: false
+    t.integer  "strikeouts",        default: 0, null: false
+    t.integer  "runs_batted_in",    default: 0, null: false
+    t.integer  "runs_scored",       default: 0, null: false
+    t.integer  "stolen_bases",      default: 0, null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seasons", force: true do |t|
+    t.integer  "year",       null: false
+    t.string   "name",       null: false
+    t.string   "kind",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_images", force: true do |t|
     t.integer  "user_id",       null: false
@@ -48,6 +86,7 @@ ActiveRecord::Schema.define(version: 20140929070036) do
     t.integer  "age"
     t.datetime "logged_at"
     t.text     "description"
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
