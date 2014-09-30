@@ -15,6 +15,7 @@ class CreateUserImages < ActiveRecord::Migration
 
       t.timestamps
     end
+
     add_index :user_images, :user_id
   end
 end

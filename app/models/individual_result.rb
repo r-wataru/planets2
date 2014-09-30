@@ -30,6 +30,10 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #
+# Indexes
+#
+#  index_individual_results_on_user_id  (user_id)
+#
 
 class IndividualResult < ActiveRecord::Base
 end

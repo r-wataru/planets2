@@ -16,5 +16,7 @@ class CreatePitcherResults < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :pitcher_results, :user_id
   end
 end

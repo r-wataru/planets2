@@ -26,6 +26,10 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #
+# Indexes
+#
+#  index_individual_competences_on_user_id  (user_id)
+#
 
 class IndividualCompetence < ActiveRecord::Base
 end

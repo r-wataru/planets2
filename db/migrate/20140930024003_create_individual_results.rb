@@ -28,5 +28,7 @@ class CreateIndividualResults < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :individual_results, :user_id
   end
 end

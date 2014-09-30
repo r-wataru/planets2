@@ -25,8 +25,10 @@ class CreateIndividualTotalResults < ActiveRecord::Migration
       t.integer :runs_scored, null: false, default: 0       # 得点
       t.integer :stolen_bases, null: false, default: 0      # 盗塁
       t.datetime :deleted_at
-      
+
       t.timestamps
     end
+
+    add_index :individual_total_results, :user_id
   end
 end

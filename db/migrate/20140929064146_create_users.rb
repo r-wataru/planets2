@@ -3,7 +3,6 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.integer :number
       t.string :display_name
-      t.string :screen_name
       t.date :birthday
       t.integer :age
       t.datetime :logged_at
@@ -12,5 +11,7 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :users, :number, unique: true
   end
 end

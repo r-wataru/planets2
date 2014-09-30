@@ -24,5 +24,7 @@ class CreateIndividualCompetences < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :individual_competences, :user_id
   end
 end

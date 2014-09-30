@@ -18,6 +18,10 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #
+# Indexes
+#
+#  index_pitcher_total_results_on_user_id  (user_id)
+#
 
 class PitcherTotalResult < ActiveRecord::Base
 end

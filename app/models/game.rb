@@ -11,6 +11,10 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
+# Indexes
+#
+#  index_games_on_season_id  (season_id)
+#
 
 class Game < ActiveRecord::Base
 end

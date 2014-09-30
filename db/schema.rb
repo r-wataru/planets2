@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930071801) do
+ActiveRecord::Schema.define(version: 20140930080546) do
 
   create_table "administrators", force: true do |t|
     t.string   "login_name",                      null: false
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20140930071801) do
     t.datetime "updated_at"
   end
 
+  add_index "games", ["season_id"], name: "index_games_on_season_id", using: :btree
+
   create_table "individual_competences", force: true do |t|
     t.integer  "user_id",                         null: false
     t.boolean  "pitcher",         default: false, null: false
@@ -65,6 +67,8 @@ ActiveRecord::Schema.define(version: 20140930071801) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "individual_competences", ["user_id"], name: "index_individual_competences_on_user_id", using: :btree
 
   create_table "individual_results", force: true do |t|
     t.integer  "user_id",                       null: false
@@ -95,6 +99,8 @@ ActiveRecord::Schema.define(version: 20140930071801) do
     t.datetime "updated_at"
   end
 
+  add_index "individual_results", ["user_id"], name: "index_individual_results_on_user_id", using: :btree
+
   create_table "individual_total_results", force: true do |t|
     t.integer  "user_id",                       null: false
     t.integer  "season_id",                     null: false
@@ -124,6 +130,8 @@ ActiveRecord::Schema.define(version: 20140930071801) do
     t.datetime "updated_at"
   end
 
+  add_index "individual_total_results", ["user_id"], name: "index_individual_total_results_on_user_id", using: :btree
+
   create_table "pitcher_results", force: true do |t|
     t.integer  "user_id",                     null: false
     t.integer  "game_id",                     null: false
@@ -140,6 +148,8 @@ ActiveRecord::Schema.define(version: 20140930071801) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "pitcher_results", ["user_id"], name: "index_pitcher_results_on_user_id", using: :btree
 
   create_table "pitcher_total_results", force: true do |t|
     t.integer  "user_id",                     null: false
@@ -158,6 +168,8 @@ ActiveRecord::Schema.define(version: 20140930071801) do
     t.datetime "updated_at"
   end
 
+  add_index "pitcher_total_results", ["user_id"], name: "index_pitcher_total_results_on_user_id", using: :btree
+
   create_table "seasons", force: true do |t|
     t.integer  "year",       null: false
     t.string   "name",       null: false
@@ -167,6 +179,17 @@ ActiveRecord::Schema.define(version: 20140930071801) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "user_identities", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.string   "info",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_identities", ["provider", "uid", "info"], name: "index_user_identities_on_provider_and_uid_and_info", unique: true, using: :btree
 
   create_table "user_images", force: true do |t|
     t.integer  "user_id",       null: false
@@ -189,7 +212,6 @@ ActiveRecord::Schema.define(version: 20140930071801) do
   create_table "users", force: true do |t|
     t.integer  "number"
     t.string   "display_name"
-    t.string   "screen_name"
     t.date     "birthday"
     t.integer  "age"
     t.datetime "logged_at"
@@ -198,5 +220,7 @@ ActiveRecord::Schema.define(version: 20140930071801) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["number"], name: "index_users_on_number", unique: true, using: :btree
 
 end

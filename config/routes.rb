@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   root to: 'users#index'
-  
+
   resources :users
+  # ログイン・ログアウト
+  resource :session, only: [ :new, :create, :destroy ]
+
+  # FacebookでログインとScreenName作成
+  resource :user_identity, only: [ :new, :create ]
+  get 'auth/facebook/callback', to: "sessions#callback"
+  get "auth/failure", to: "sessions#failure"
 end
