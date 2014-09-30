@@ -25,9 +25,11 @@ require 'nkf'
 class User < ActiveRecord::Base
   has_many :pitcher_results
   has_many :individual_results
-  
+
   before_save do
-    self.age = age_calculation
+    unless self.birthday.nil?
+      self.age = age_calculation
+    end
   end
 
   def age_calculation
@@ -41,7 +43,7 @@ class User < ActiveRecord::Base
       return "#{age}歳"
     end
   end
-  
+
   class << self
     def import_csv
       path = Rails.root.join("db", "seeds", "data", "mla_export_p_pitcher.csv")
