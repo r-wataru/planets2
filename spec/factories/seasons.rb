@@ -7,6 +7,7 @@
 #  name       :string(255)      not null
 #  kind       :string(255)      not null
 #  use        :boolean          not null
+#  deleted_at :datetime
 #  created_at :datetime
 #  updated_at :datetime
 #

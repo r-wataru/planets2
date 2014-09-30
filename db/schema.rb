@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930055741) do
+ActiveRecord::Schema.define(version: 20140930062351) do
 
   create_table "emails", force: true do |t|
     t.integer  "user_id",    null: false
@@ -28,6 +28,31 @@ ActiveRecord::Schema.define(version: 20140930055741) do
     t.string   "name",       null: false
     t.text     "result1"
     t.text     "result2"
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "individual_competences", force: true do |t|
+    t.integer  "user_id",                         null: false
+    t.boolean  "pitcher",         default: false, null: false
+    t.boolean  "catcher",         default: false, null: false
+    t.boolean  "first",           default: false, null: false
+    t.boolean  "second",          default: false, null: false
+    t.boolean  "short",           default: false, null: false
+    t.boolean  "third",           default: false, null: false
+    t.boolean  "outfield",        default: false, null: false
+    t.integer  "line",            default: 0,     null: false
+    t.integer  "meet",            default: 0,     null: false
+    t.integer  "power",           default: 0,     null: false
+    t.integer  "running_ability", default: 0,     null: false
+    t.integer  "shoulder_power",  default: 0,     null: false
+    t.integer  "defense",         default: 0,     null: false
+    t.integer  "speed",           default: 0,     null: false
+    t.integer  "controll",        default: 0,     null: false
+    t.integer  "stamina",         default: 0,     null: false
+    t.integer  "throw",           default: 0,     null: false
+    t.integer  "swing",           default: 0,     null: false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -91,11 +116,46 @@ ActiveRecord::Schema.define(version: 20140930055741) do
     t.datetime "updated_at"
   end
 
+  create_table "pitcher_results", force: true do |t|
+    t.integer  "user_id",                     null: false
+    t.integer  "game_id",                     null: false
+    t.integer  "pitching_number", default: 0, null: false
+    t.integer  "hit",             default: 0, null: false
+    t.integer  "run",             default: 0, null: false
+    t.integer  "remorse_point",   default: 0, null: false
+    t.integer  "strikeouts",      default: 0, null: false
+    t.integer  "winning",         default: 0, null: false
+    t.integer  "defeat",          default: 0, null: false
+    t.integer  "hold_number",     default: 0, null: false
+    t.integer  "save_number",     default: 0, null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pitcher_total_results", force: true do |t|
+    t.integer  "user_id",                     null: false
+    t.integer  "season_id",                   null: false
+    t.integer  "pitching_number", default: 0, null: false
+    t.integer  "hit",             default: 0, null: false
+    t.integer  "run",             default: 0, null: false
+    t.integer  "remorse_point",   default: 0, null: false
+    t.integer  "strikeouts",      default: 0, null: false
+    t.integer  "winning",         default: 0, null: false
+    t.integer  "defeat",          default: 0, null: false
+    t.integer  "hold_number",     default: 0, null: false
+    t.integer  "save_number",     default: 0, null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "seasons", force: true do |t|
     t.integer  "year",       null: false
     t.string   "name",       null: false
     t.string   "kind",       null: false
     t.boolean  "use",        null: false
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

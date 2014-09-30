@@ -5,6 +5,7 @@ class CreateSeasons < ActiveRecord::Migration
       t.string :name, null: false
       t.string :kind, null: false
       t.boolean :use, null: false
+      t.datetime :deleted_at
 
       t.timestamps
     end
