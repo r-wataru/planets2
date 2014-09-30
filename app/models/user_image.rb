@@ -17,10 +17,6 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #
-# Indexes
-#
-#  index_user_images_on_user_id  (user_id)
-#
 
 class UserImage < ActiveRecord::Base
 end

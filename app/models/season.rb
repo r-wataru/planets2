@@ -6,6 +6,7 @@
 #  year       :integer          not null
 #  name       :string(255)      not null
 #  kind       :string(255)      not null
+#  use        :boolean          not null
 #  created_at :datetime
 #  updated_at :datetime
 #

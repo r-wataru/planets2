@@ -1,8 +1,8 @@
-class CreateIndividualResults < ActiveRecord::Migration
+class CreateIndividualTotalResults < ActiveRecord::Migration
   def change
-    create_table :individual_results do |t|
+    create_table :individual_total_results do |t|
       t.references :user, null: false
-      t.references :game, null: false
+      t.references :season, null: false
       t.integer :plate_appearances, null: false, default: 0 # 打席数
       t.integer :at_bats, null: false, default: 0           # 打数
       t.integer :single, null: false, default: 0            # シングルヒット
@@ -25,7 +25,7 @@ class CreateIndividualResults < ActiveRecord::Migration
       t.integer :runs_scored, null: false, default: 0       # 得点
       t.integer :stolen_bases, null: false, default: 0      # 盗塁
       t.datetime :deleted_at
-
+      
       t.timestamps
     end
   end

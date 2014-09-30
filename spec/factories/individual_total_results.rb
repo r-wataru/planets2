@@ -1,10 +1,10 @@
 # == Schema Information
 #
-# Table name: individual_results
+# Table name: individual_total_results
 #
 #  id                :integer          not null, primary key
 #  user_id           :integer          not null
-#  game_id           :integer          not null
+#  season_id         :integer          not null
 #  plate_appearances :integer          default(0), not null
 #  at_bats           :integer          default(0), not null
 #  single            :integer          default(0), not null
@@ -31,8 +31,9 @@
 #  updated_at        :datetime
 #
 
-require 'rails_helper'
+# Read about factories at https://github.com/thoughtbot/factory_girl
 
-RSpec.describe IndividualResult, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+FactoryGirl.define do
+  factory :individual_total_result do
+  end
 end

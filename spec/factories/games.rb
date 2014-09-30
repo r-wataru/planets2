@@ -1,12 +1,13 @@
 # == Schema Information
 #
-# Table name: seasons
+# Table name: games
 #
 #  id         :integer          not null, primary key
-#  year       :integer          not null
+#  season_id  :integer          not null
 #  name       :string(255)      not null
-#  kind       :string(255)      not null
-#  use        :boolean          not null
+#  result1    :text
+#  result2    :text
+#  deleted_at :datetime
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -14,6 +15,6 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :season do
+  factory :game do
   end
 end

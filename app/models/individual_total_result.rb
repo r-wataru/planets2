@@ -1,10 +1,10 @@
 # == Schema Information
 #
-# Table name: individual_results
+# Table name: individual_total_results
 #
 #  id                :integer          not null, primary key
 #  user_id           :integer          not null
-#  game_id           :integer          not null
+#  season_id         :integer          not null
 #  plate_appearances :integer          default(0), not null 打席数
 #  at_bats           :integer          default(0), not null 打数
 #  single            :integer          default(0), not null シングルヒット
@@ -31,5 +31,5 @@
 #  updated_at        :datetime
 #
 
-class IndividualResult < ActiveRecord::Base
+class IndividualTotalResult < ActiveRecord::Base
 end

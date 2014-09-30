@@ -4,7 +4,7 @@
 #
 #  id                :integer          not null, primary key
 #  user_id           :integer          not null
-#  season_id         :integer          not null
+#  game_id           :integer          not null
 #  plate_appearances :integer          default(0), not null
 #  at_bats           :integer          default(0), not null
 #  single            :integer          default(0), not null

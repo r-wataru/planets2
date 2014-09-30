@@ -1,10 +1,12 @@
 # == Schema Information
 #
-# Table name: emails
+# Table name: games
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer          not null
-#  address    :string(255)      not null
+#  season_id  :integer          not null
+#  name       :string(255)      not null
+#  result1    :text
+#  result2    :text
 #  deleted_at :datetime
 #  created_at :datetime
 #  updated_at :datetime
@@ -12,6 +14,6 @@
 
 require 'rails_helper'
 
-RSpec.describe Emails, :type => :model do
+RSpec.describe Game, :type => :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

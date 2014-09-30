@@ -9,10 +9,6 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
-# Indexes
-#
-#  index_emails_on_address  (address) UNIQUE
-#
 
 class Emails < ActiveRecord::Base
 end
