@@ -18,7 +18,14 @@
 #  index_users_on_number  (number) UNIQUE
 #
 
+require 'csv'
+require "kconv"
+require 'nkf'
+
 class User < ActiveRecord::Base
+  has_many :pitcher_results
+  has_many :individual_results
+  
   before_save do
     self.age = age_calculation
   end
@@ -32,6 +39,22 @@ class User < ActiveRecord::Base
   def display_age
     if self.age.present?
       return "#{age}歳"
+    end
+  end
+  
+  class << self
+    def import_csv
+      path = Rails.root.join("db", "seeds", "data", "mla_export_p_pitcher.csv")
+      if File.exists?(path)
+        file = path.read
+        data = NKF::nkf('-w', file)
+        csv = CSV.new(data)
+        csv.each_with_index do |arr, idx|
+          # csvがない
+        end
+      else
+        return false
+      end
     end
   end
 end
