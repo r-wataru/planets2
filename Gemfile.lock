@@ -32,6 +32,7 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
+    bcrypt-ruby (3.0.1)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     bourne (1.5.0)
@@ -89,6 +90,9 @@ GEM
       mime-types (>= 1.16, < 3)
     metaclass (0.0.4)
     mime-types (2.3)
+    mini_auth (1.0.0)
+      bcrypt-ruby (~> 3.0.1)
+      rails (>= 3.1.8)
     mini_portile (0.6.0)
     minitest (5.4.1)
     mocha (0.14.0)
@@ -227,6 +231,7 @@ DEPENDENCIES
   jquery-rails
   json (~> 1.8.1)
   launchy
+  mini_auth (~> 1.0.0)
   mocha
   mysql2 (~> 0.3.16)
   newrelic_rpm

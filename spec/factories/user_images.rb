@@ -17,6 +17,10 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #
+# Indexes
+#
+#  index_user_images_on_user_id  (user_id)
+#
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
 

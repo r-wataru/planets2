@@ -5,6 +5,7 @@ ruby '2.1.0'
 gem "rails", "~> 4.1.5"
 
 gem 'mysql2', '~> 0.3.16'
+gem 'mini_auth', '~> 1.0.0'
 gem "json", "~> 1.8.1"
 gem 'jquery-rails'
 gem 'rails-i18n'
