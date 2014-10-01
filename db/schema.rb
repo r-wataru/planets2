@@ -32,11 +32,34 @@ ActiveRecord::Schema.define(version: 20140930080546) do
   add_index "emails", ["address"], name: "index_emails_on_address", unique: true, using: :btree
 
   create_table "games", force: true do |t|
-    t.integer  "season_id",  null: false
-    t.string   "name",       null: false
+    t.integer  "season_id",                     null: false
+    t.string   "name",                          null: false
     t.text     "result1"
     t.text     "result2"
-    t.datetime "deleted_at"
+    t.integer  "plate_appearances", default: 0, null: false
+    t.integer  "at_bats",           default: 0, null: false
+    t.integer  "single",            default: 0, null: false
+    t.integer  "double",            default: 0, null: false
+    t.integer  "triple",            default: 0, null: false
+    t.integer  "home_run",          default: 0, null: false
+    t.integer  "base_on_balls",     default: 0, null: false
+    t.integer  "hit_by_pitches",    default: 0, null: false
+    t.integer  "sacrifice_bunts",   default: 0, null: false
+    t.integer  "sacrifice_flies",   default: 0, null: false
+    t.integer  "errors",            default: 0, null: false
+    t.integer  "infield_grounder",  default: 0, null: false
+    t.integer  "outfield_grounder", default: 0, null: false
+    t.integer  "infield_fly",       default: 0, null: false
+    t.integer  "outfield_fly",      default: 0, null: false
+    t.integer  "infield_linera",    default: 0, null: false
+    t.integer  "out_linera",        default: 0, null: false
+    t.integer  "strikeouts",        default: 0, null: false
+    t.integer  "runs_batted_in",    default: 0, null: false
+    t.integer  "runs_scored",       default: 0, null: false
+    t.integer  "stolen_bases",      default: 0, null: false
+    t.integer  "pitching_number",   default: 0, null: false
+    t.integer  "hit",               default: 0, null: false
+    t.integer  "run",               default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -171,14 +194,15 @@ ActiveRecord::Schema.define(version: 20140930080546) do
   add_index "pitcher_total_results", ["user_id"], name: "index_pitcher_total_results_on_user_id", using: :btree
 
   create_table "seasons", force: true do |t|
-    t.integer  "year",       null: false
-    t.string   "name",       null: false
-    t.string   "kind",       null: false
-    t.boolean  "use",        null: false
+    t.integer  "year",                       null: false
+    t.string   "name",                       null: false
+    t.boolean  "use",        default: false, null: false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "seasons", ["year"], name: "index_seasons_on_year", unique: true, using: :btree
 
   create_table "user_identities", force: true do |t|
     t.integer  "user_id",    null: false

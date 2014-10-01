@@ -3,11 +3,12 @@ class CreateSeasons < ActiveRecord::Migration
     create_table :seasons do |t|
       t.integer :year, null: false
       t.string :name, null: false
-      t.string :kind, null: false
-      t.boolean :use, null: false
+      t.boolean :use, null: false, default: false
       t.datetime :deleted_at
 
       t.timestamps
     end
+    
+    add_index :seasons, :year, unique: true
   end
 end
