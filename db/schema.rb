@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 20140930080546) do
   create_table "games", force: true do |t|
     t.integer  "season_id",                     null: false
     t.string   "name",                          null: false
+    t.text     "description"
+    t.datetime "played_at",                     null: false
+    t.string   "total_result",                  null: false
     t.text     "result1"
     t.text     "result2"
     t.integer  "plate_appearances", default: 0, null: false
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 20140930080546) do
     t.integer  "hit_by_pitches",    default: 0, null: false
     t.integer  "sacrifice_bunts",   default: 0, null: false
     t.integer  "sacrifice_flies",   default: 0, null: false
-    t.integer  "errors",            default: 0, null: false
+    t.integer  "gaffe",             default: 0, null: false
     t.integer  "infield_grounder",  default: 0, null: false
     t.integer  "outfield_grounder", default: 0, null: false
     t.integer  "infield_fly",       default: 0, null: false
@@ -60,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140930080546) do
     t.integer  "pitching_number",   default: 0, null: false
     t.integer  "hit",               default: 0, null: false
     t.integer  "run",               default: 0
+    t.integer  "get_strikeouts",    default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
