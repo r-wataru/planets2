@@ -33,6 +33,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :hit, null: false, default: 0               # 被安打
       t.integer :run, nul: false, default: 0                # 失点
       t.integer :get_strikeouts, null: false, default: 0    # 奪三振
+      t.datetime :deleted_at
 
       t.timestamps
     end

@@ -26,9 +26,7 @@
 require 'csv'
 require "kconv"
 require 'nkf'
-
 class PitcherResult < ActiveRecord::Base
-
   class << self
     def import_csv
       path = Rails.root.join("db", "seeds", "data", "mla_export_p_pitcher.csv")
@@ -38,10 +36,12 @@ class PitcherResult < ActiveRecord::Base
         csv = CSV.new(data)
         csv.each_with_index do |arr, idx|
           data_arr = arr[0].split(";")
-          user = User.find_by_display_name(data_arr[2])
-          if user.present?
+          puts data_arr[2]
+          if User.exists?(display_name: data_arr[2])
+            user = User.find_by_display_name(data_arr[2])
             transaction do
-              user.pitcher_results.new(
+              user.pitcher_results.create(
+                game_id: data_arr[0],
                 pitching_number: data_arr[3],
                 hit: data_arr[4],
                 run: data_arr[5],
@@ -50,11 +50,8 @@ class PitcherResult < ActiveRecord::Base
                 winning: data_arr[8],
                 defeat: data_arr[9],
                 hold_number: data_arr[10],
-                save_number: data_arr[11]
-              )
+                save_number: data_arr[11])
             end
-          else
-            return false
           end
         end
       else
@@ -73,3 +70,4 @@ end
 #  defeat          負
 #  hold_number     ホールド
 #  save_number     セーブ
+

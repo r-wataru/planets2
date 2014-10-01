@@ -35,6 +35,7 @@
 #  hit               :integer          default(0), not null
 #  run               :integer          default(0)
 #  get_strikeouts    :integer          default(0), not null
+#  deleted_at        :datetime
 #  created_at        :datetime
 #  updated_at        :datetime
 #
