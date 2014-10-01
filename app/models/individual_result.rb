@@ -81,25 +81,3 @@ class IndividualResult < ActiveRecord::Base
     end
   end
 end
-
-#  plate_appearances 打席数
-#  at_bats           打数
-#  single            シングルヒット
-#  double            ２ベース
-#  triple            ３ベース
-#  home_run          ホームラン
-#  base_on_balls     四球
-#  hit_by_pitches    死球
-#  sacrifice_bunts   犠打
-#  sacrifice_flies   犠飛
-#  errors            失策
-#  infield_grounder  内野ゴロ
-#  outfield_grounder 外野ゴロ
-#  infield_fly       内野フライ
-#  outfield_fly      外野フライ
-#  infield_linera    内野ライナー
-#  out_linera        外野ライナー
-#  strikeouts        三振
-#  runs_batted_in    打点
-#  runs_scored       得点
-#  stolen_bases      盗塁

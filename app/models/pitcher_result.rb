@@ -60,14 +60,3 @@ class PitcherResult < ActiveRecord::Base
     end
   end
 end
-
-#  pitching_number 投球回
-#  hit             被安打
-#  run             失点
-#  remorse_point   自責点
-#  strikeouts      三振
-#  winning         勝
-#  defeat          負
-#  hold_number     ホールド
-#  save_number     セーブ
-

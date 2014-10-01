@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        number: 背番号
+        display:_name: 名前
+        birthday: 生年月日
+        age: 年齢
+        description: コメント
+      email:
+        address: メールアドレス
+      user_image:
+        data1: イメージ1
+        data2: イメージ1
+        data3: イメージ1
+        data4: イメージ1
+        data5: イメージ1

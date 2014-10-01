@@ -33,22 +33,3 @@
 
 class IndividualCompetence < ActiveRecord::Base
 end
-
-#  pitcher         投手
-#  catcher         捕手
-#  first           一塁
-#  second          二塁
-#  short           遊撃
-#  third           三塁
-#  outfield        外野
-#  line            弾丸
-#  meet            ミート力
-#  power           パワー
-#  running_ability 走力
-#  shoulder_power  肩力
-#  defense         守備力
-#  speed           スピード
-#  controll        コントロール
-#  stamina         スタミナ
-#  throw           投げ方
-#  swing           振り方
