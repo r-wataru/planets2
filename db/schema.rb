@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 20140930080546) do
     t.integer  "hit_by_pitches",    default: 0, null: false
     t.integer  "sacrifice_bunts",   default: 0, null: false
     t.integer  "sacrifice_flies",   default: 0, null: false
-    t.integer  "errors",            default: 0, null: false
+    t.integer  "gaffe",             default: 0, null: false
     t.integer  "infield_grounder",  default: 0, null: false
     t.integer  "outfield_grounder", default: 0, null: false
     t.integer  "infield_fly",       default: 0, null: false
@@ -153,6 +153,7 @@ ActiveRecord::Schema.define(version: 20140930080546) do
     t.integer  "runs_batted_in",    default: 0, null: false
     t.integer  "runs_scored",       default: 0, null: false
     t.integer  "stolen_bases",      default: 0, null: false
+    t.text     "set_games"
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -24,6 +24,7 @@ require 'nkf'
 class User < ActiveRecord::Base
   has_many :pitcher_results
   has_many :individual_results
+  has_many :individual_total_results
 
   before_save do
     unless self.birthday.nil?

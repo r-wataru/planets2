@@ -49,6 +49,7 @@ require "kconv"
 require 'nkf'
 class Game < ActiveRecord::Base
   belongs_to :season
+  has_many :individual_results
 
   scope :active, ->{ where(deleted_at: nil) }
 

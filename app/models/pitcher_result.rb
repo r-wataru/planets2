@@ -36,7 +36,6 @@ class PitcherResult < ActiveRecord::Base
         csv = CSV.new(data)
         csv.each_with_index do |arr, idx|
           data_arr = arr[0].split(";")
-          puts data_arr[2]
           if User.exists?(display_name: data_arr[2])
             user = User.find_by_display_name(data_arr[2])
             transaction do

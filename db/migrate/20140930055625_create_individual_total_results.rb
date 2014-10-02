@@ -13,7 +13,7 @@ class CreateIndividualTotalResults < ActiveRecord::Migration
       t.integer :hit_by_pitches	, null: false, default: 0   # 死球
       t.integer :sacrifice_bunts, null: false, default: 0   # 犠打
       t.integer :sacrifice_flies, null: false, default: 0   # 犠飛
-      t.integer :errors, null: false, default: 0            # 失策
+      t.integer :gaffe, null: false, default: 0             # 失策
       t.integer :infield_grounder, null: false, default: 0  # 内野ゴロ
       t.integer :outfield_grounder, null: false, default: 0 # 外野ゴロ
       t.integer :infield_fly, null: false, default: 0       # 内野フライ
@@ -24,6 +24,7 @@ class CreateIndividualTotalResults < ActiveRecord::Migration
       t.integer :runs_batted_in, null: false, default: 0    # 打点
       t.integer :runs_scored, null: false, default: 0       # 得点
       t.integer :stolen_bases, null: false, default: 0      # 盗塁
+      t.text :set_games
       t.datetime :deleted_at
 
       t.timestamps
