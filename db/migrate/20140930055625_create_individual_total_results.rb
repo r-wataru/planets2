@@ -25,6 +25,9 @@ class CreateIndividualTotalResults < ActiveRecord::Migration
       t.integer :runs_scored, null: false, default: 0       # 得点
       t.integer :stolen_bases, null: false, default: 0      # 盗塁
       t.text :set_games
+      t.string :batting_average, null: false, default: ""     # 打率
+      t.string :base_percentage, null: false, default: ""     # 出塁率
+      t.string :slugging_percentage, null: false, default: "" # 長打率
       t.datetime :deleted_at
 
       t.timestamps

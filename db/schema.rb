@@ -130,30 +130,33 @@ ActiveRecord::Schema.define(version: 20140930080546) do
   add_index "individual_results", ["user_id"], name: "index_individual_results_on_user_id", using: :btree
 
   create_table "individual_total_results", force: true do |t|
-    t.integer  "user_id",                       null: false
-    t.integer  "season_id",                     null: false
-    t.integer  "plate_appearances", default: 0, null: false
-    t.integer  "at_bats",           default: 0, null: false
-    t.integer  "single",            default: 0, null: false
-    t.integer  "double",            default: 0, null: false
-    t.integer  "triple",            default: 0, null: false
-    t.integer  "home_run",          default: 0, null: false
-    t.integer  "base_on_balls",     default: 0, null: false
-    t.integer  "hit_by_pitches",    default: 0, null: false
-    t.integer  "sacrifice_bunts",   default: 0, null: false
-    t.integer  "sacrifice_flies",   default: 0, null: false
-    t.integer  "gaffe",             default: 0, null: false
-    t.integer  "infield_grounder",  default: 0, null: false
-    t.integer  "outfield_grounder", default: 0, null: false
-    t.integer  "infield_fly",       default: 0, null: false
-    t.integer  "outfield_fly",      default: 0, null: false
-    t.integer  "infield_linera",    default: 0, null: false
-    t.integer  "out_linera",        default: 0, null: false
-    t.integer  "strikeouts",        default: 0, null: false
-    t.integer  "runs_batted_in",    default: 0, null: false
-    t.integer  "runs_scored",       default: 0, null: false
-    t.integer  "stolen_bases",      default: 0, null: false
+    t.integer  "user_id",                          null: false
+    t.integer  "season_id",                        null: false
+    t.integer  "plate_appearances",   default: 0,  null: false
+    t.integer  "at_bats",             default: 0,  null: false
+    t.integer  "single",              default: 0,  null: false
+    t.integer  "double",              default: 0,  null: false
+    t.integer  "triple",              default: 0,  null: false
+    t.integer  "home_run",            default: 0,  null: false
+    t.integer  "base_on_balls",       default: 0,  null: false
+    t.integer  "hit_by_pitches",      default: 0,  null: false
+    t.integer  "sacrifice_bunts",     default: 0,  null: false
+    t.integer  "sacrifice_flies",     default: 0,  null: false
+    t.integer  "gaffe",               default: 0,  null: false
+    t.integer  "infield_grounder",    default: 0,  null: false
+    t.integer  "outfield_grounder",   default: 0,  null: false
+    t.integer  "infield_fly",         default: 0,  null: false
+    t.integer  "outfield_fly",        default: 0,  null: false
+    t.integer  "infield_linera",      default: 0,  null: false
+    t.integer  "out_linera",          default: 0,  null: false
+    t.integer  "strikeouts",          default: 0,  null: false
+    t.integer  "runs_batted_in",      default: 0,  null: false
+    t.integer  "runs_scored",         default: 0,  null: false
+    t.integer  "stolen_bases",        default: 0,  null: false
     t.text     "set_games"
+    t.string   "batting_average",     default: "", null: false
+    t.string   "base_percentage",     default: "", null: false
+    t.string   "slugging_percentage", default: "", null: false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"

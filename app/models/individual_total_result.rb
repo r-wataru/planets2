@@ -2,34 +2,37 @@
 #
 # Table name: individual_total_results
 #
-#  id                :integer          not null, primary key
-#  user_id           :integer          not null
-#  season_id         :integer          not null
-#  plate_appearances :integer          default(0), not null
-#  at_bats           :integer          default(0), not null
-#  single            :integer          default(0), not null
-#  double            :integer          default(0), not null
-#  triple            :integer          default(0), not null
-#  home_run          :integer          default(0), not null
-#  base_on_balls     :integer          default(0), not null
-#  hit_by_pitches    :integer          default(0), not null
-#  sacrifice_bunts   :integer          default(0), not null
-#  sacrifice_flies   :integer          default(0), not null
-#  gaffe             :integer          default(0), not null
-#  infield_grounder  :integer          default(0), not null
-#  outfield_grounder :integer          default(0), not null
-#  infield_fly       :integer          default(0), not null
-#  outfield_fly      :integer          default(0), not null
-#  infield_linera    :integer          default(0), not null
-#  out_linera        :integer          default(0), not null
-#  strikeouts        :integer          default(0), not null
-#  runs_batted_in    :integer          default(0), not null
-#  runs_scored       :integer          default(0), not null
-#  stolen_bases      :integer          default(0), not null
-#  set_games         :text
-#  deleted_at        :datetime
-#  created_at        :datetime
-#  updated_at        :datetime
+#  id                  :integer          not null, primary key
+#  user_id             :integer          not null
+#  season_id           :integer          not null
+#  plate_appearances   :integer          default(0), not null
+#  at_bats             :integer          default(0), not null
+#  single              :integer          default(0), not null
+#  double              :integer          default(0), not null
+#  triple              :integer          default(0), not null
+#  home_run            :integer          default(0), not null
+#  base_on_balls       :integer          default(0), not null
+#  hit_by_pitches      :integer          default(0), not null
+#  sacrifice_bunts     :integer          default(0), not null
+#  sacrifice_flies     :integer          default(0), not null
+#  gaffe               :integer          default(0), not null
+#  infield_grounder    :integer          default(0), not null
+#  outfield_grounder   :integer          default(0), not null
+#  infield_fly         :integer          default(0), not null
+#  outfield_fly        :integer          default(0), not null
+#  infield_linera      :integer          default(0), not null
+#  out_linera          :integer          default(0), not null
+#  strikeouts          :integer          default(0), not null
+#  runs_batted_in      :integer          default(0), not null
+#  runs_scored         :integer          default(0), not null
+#  stolen_bases        :integer          default(0), not null
+#  set_games           :text
+#  batting_average     :string(255)      default(""), not null
+#  base_percentage     :string(255)      default(""), not null
+#  slugging_percentage :string(255)      default(""), not null
+#  deleted_at          :datetime
+#  created_at          :datetime
+#  updated_at          :datetime
 #
 # Indexes
 #
