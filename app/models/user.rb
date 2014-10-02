@@ -23,6 +23,7 @@ require "kconv"
 require 'nkf'
 class User < ActiveRecord::Base
   has_many :pitcher_results
+  has_many :pitcher_total_results
   has_many :individual_results
   has_many :individual_total_results
 

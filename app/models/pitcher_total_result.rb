@@ -24,4 +24,50 @@
 #
 
 class PitcherTotalResult < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :season
+  serialize :set_games
+
+  def update_data(game)
+    result = user.pitcher_results.find_by(game_id: game.id)
+    if self.set_games.nil?
+      self.set_games = [game.id] unless result.nil?
+    else
+      self.set_games << game.id unless result.nil?
+    end
+    unless result.nil?
+      self.pitching_number += result.pitching_number
+      self.hit += result.hit
+      self.run += result.run
+      self.remorse_point += result.remorse_point
+      self.strikeouts += result.strikeouts
+      self.winning += result.winning
+      self.defeat += result.defeat
+      self.hold_number += result.hold_number
+      self.save_number += result.save_number
+      self.save
+    end
+  end
+
+  class << self
+    def new_data(user,season,game)
+      array = [game.id]
+      unless user.pitcher_results.find_by(game_id: game.id).nil?
+        result = user.pitcher_results.find_by(game_id: game.id)
+        self.create(
+          user_id: user.id,
+          season_id: season.id,
+          pitching_number: result.pitching_number,
+          hit: result.hit,
+          run: result.run,
+          remorse_point: result.remorse_point,
+          strikeouts: result.strikeouts,
+          winning: result.winning,
+          defeat: result.defeat,
+          hold_number: result.hold_number,
+          save_number: result.save_number,
+          set_games: array)
+      end
+    end
+  end
 end

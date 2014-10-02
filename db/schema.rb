@@ -195,6 +195,7 @@ ActiveRecord::Schema.define(version: 20140930080546) do
     t.integer  "defeat",          default: 0, null: false
     t.integer  "hold_number",     default: 0, null: false
     t.integer  "save_number",     default: 0, null: false
+    t.text     "set_games"
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
