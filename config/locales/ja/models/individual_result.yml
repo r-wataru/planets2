@@ -45,3 +45,6 @@ ja:
         runs_batted_in: 打点
         runs_scored: 得点
         stolen_bases: 盗塁
+        batting_average: 打率
+        base_percentage: 出塁率
+        slugging_percentage: 長打率

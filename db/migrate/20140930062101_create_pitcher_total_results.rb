@@ -12,6 +12,9 @@ class CreatePitcherTotalResults < ActiveRecord::Migration
       t.integer :defeat, null: false, default: 0
       t.integer :hold_number, null: false, default: 0
       t.integer :save_number, null: false, default: 0
+      t.string :winning_rate, null: false, default: ""
+      t.string :struck_out_rate, null: false, default: ""
+      t.string :earned_run_average, null: false, default: ""
       t.text :set_games
       t.datetime :deleted_at
 

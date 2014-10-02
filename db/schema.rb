@@ -184,17 +184,20 @@ ActiveRecord::Schema.define(version: 20140930080546) do
   add_index "pitcher_results", ["user_id"], name: "index_pitcher_results_on_user_id", using: :btree
 
   create_table "pitcher_total_results", force: true do |t|
-    t.integer  "user_id",                     null: false
-    t.integer  "season_id",                   null: false
-    t.integer  "pitching_number", default: 0, null: false
-    t.integer  "hit",             default: 0, null: false
-    t.integer  "run",             default: 0, null: false
-    t.integer  "remorse_point",   default: 0, null: false
-    t.integer  "strikeouts",      default: 0, null: false
-    t.integer  "winning",         default: 0, null: false
-    t.integer  "defeat",          default: 0, null: false
-    t.integer  "hold_number",     default: 0, null: false
-    t.integer  "save_number",     default: 0, null: false
+    t.integer  "user_id",                         null: false
+    t.integer  "season_id",                       null: false
+    t.integer  "pitching_number",    default: 0,  null: false
+    t.integer  "hit",                default: 0,  null: false
+    t.integer  "run",                default: 0,  null: false
+    t.integer  "remorse_point",      default: 0,  null: false
+    t.integer  "strikeouts",         default: 0,  null: false
+    t.integer  "winning",            default: 0,  null: false
+    t.integer  "defeat",             default: 0,  null: false
+    t.integer  "hold_number",        default: 0,  null: false
+    t.integer  "save_number",        default: 0,  null: false
+    t.string   "winning_rate",       default: "", null: false
+    t.string   "struck_out_rate",    default: "", null: false
+    t.string   "earned_run_average", default: "", null: false
     t.text     "set_games"
     t.datetime "deleted_at"
     t.datetime "created_at"

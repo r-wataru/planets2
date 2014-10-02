@@ -30,18 +30,23 @@ class Rate
       return total_bases(total).to_i.quo(total.at_bats).to_f.round(3)
     end
 
-    def winning_rate
+    def winning_rate(total)
       #勝率	勝数÷(勝数＋負数)
-    end
-    
-    def struck_out_rate
-      # 奪三振数 奪三振×9÷投球回
+      unless total.winning + total.defeat == 0
+        return total.winning.to_i.quo(total.winning + total.defeat).to_f.round(3)
+      end
     end
 
-    def earned_run_average
-      #防御率	自責点×９÷投球回数　[小数点３位以下四捨五入]
+    def struck_out_rate(total)
+      # 奪三振数 奪三振×9÷投球回
+      return (total.strikeouts * 9).quo(total.pitching_number).to_f.round(2)
     end
-    
+
+    def earned_run_average(total)
+      #防御率	自責点×９÷投球回数　[小数点３位以下四捨五入]
+      return (total.remorse_point * 9).quo(total.pitching_number).to_f.round(2)
+    end
+
     def provisions_bat(season)
       #規定打席数	試合数×3.1　[小数点以下切り捨て]
       return (season.games.count * 3.1).to_i

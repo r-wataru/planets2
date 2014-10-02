@@ -21,3 +21,6 @@ ja:
         defeat: 負
         hold_number: ホールド
         save_number: セーブ
+        winning_rate: 勝率
+        struck_out_rate: 奪三振率
+        earned_run_average: 防御率
