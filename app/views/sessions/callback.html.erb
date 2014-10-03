@@ -1,6 +1,5 @@
 <script type="text/javascript">
   $(document).ready(function() {
-    alert("abc");
     var div = document.getElementById("flash_callback");
     if (div && window.opener) {
       <% if @user %>
@@ -14,7 +13,6 @@
         window.opener.location.href = "auth/failure";
       <% end %>
     }
-    alert("abc");
   });
 </script>
 

@@ -4,24 +4,14 @@
   </div>
   <div class="panel-body">
     <%= form_for @user, url: :confirm_user_identity, method: :post do |f| %>
-    <p>
-      <% full_user = User.where(created: false) %>
-      <%= f.select :select_user_name, full_user.map{|u| [u.display_name, u.id]}, 
-        { include_blank: "ユーザーを選択" }, { class: "form-control" } %>
-    </p>
-    <p>
-      <%= f.check_box :new_user_name %>
-      <%= f.label :new_user_name, "新規作成" %>
-    </p>
       <p>
-        <% if @user.errors.include?(:new_emails) %>
-          <p style="color: red;">
-          <%= flash.now.alert = "メールアドレスが間違っています。" %>
-          </p>
-          <%= f.text_field :new_email, placeholder: "メールアドレス", style: "background: yellow;", class: "form-control" %>
-        <% else %>
-          <%= f.text_field :new_email, placeholder: "メールアドレス", class: "form-control" %>
-        <% end %>
+        <% full_user = User.where(created: false) %>
+        <%= f.select :select_user_name, full_user.map{|u| [u.display_name, u.id]},
+          { include_blank: "ユーザーを選択" }, { class: "form-control" } %>
+      </p>
+      <p>
+        <%= f.check_box :new_user_name %>
+        <%= f.label :new_user_name, "新規作成" %>
       </p>
       <p>
         <%= format_error_message(@user, :login_name, f).html_safe %>

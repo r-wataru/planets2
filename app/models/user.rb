@@ -28,11 +28,12 @@ require 'nkf'
 class User < ActiveRecord::Base
   include MiniAuth
 
+  has_many :emails
   has_many :pitcher_results
   has_many :pitcher_total_results
   has_many :individual_results
   has_many :individual_total_results
-  
+
   attr_reader :new_email
   attr_accessor :select_user_name, :new_user_name
 
@@ -52,6 +53,10 @@ class User < ActiveRecord::Base
     if self.age.present?
       return "#{age}歳"
     end
+  end
+
+  def email=(address)
+    self.emails.build(address: address)
   end
 
   class << self

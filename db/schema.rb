@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20140930080546) do
   end
 
   create_table "emails", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.string   "address",    null: false
+    t.integer  "user_id",                    null: false
+    t.string   "address",                    null: false
+    t.boolean  "main",       default: false, null: false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"

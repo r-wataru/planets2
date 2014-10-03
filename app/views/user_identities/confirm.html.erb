@@ -3,14 +3,24 @@
     <p>確認と管理者確認</p>
   </div>
   <div class="panel-body">
-    <%= form_for @user, method: :post do |f| %>
-      あなたは<strong><%= User.find_by(id: @user.select_user_name).try(:display_name) %></strong>ですか？
+    <%= form_for @user, url: :user_identity, method: :post do |f| %>
+      <% if @user.new_user_name == "0" %>
+        あなたは<strong><%= User.find_by(id: @user.select_user_name).try(:display_name) %></strong>ですか？
+      <% else %>
+        以下の内容で宜しいですか？<br/>
+        ログイン名：<strong><%= @user.login_name %></strong><br/>
+        表示名：<strong><%= @user.display_name %></strong><br/>
+      <% end %>
+      <p><%= text_field_tag :login_name, "", placeholder: "ログイン名", class: "form-control" %></p>
+      <p><%= password_field_tag :password, "", placeholder: "パスワード", class: "form-control" %></p>
+      <%= f.hidden_field :emails, value: session[:omniauth_info] %>
+      <%= f.hidden_field :select_user_name, value: @user.select_user_name %>
       <%= f.hidden_field :new_user_name, value: @user.new_user_name %>
-      <%= f.hidden_field :new_email %>
-      <%= f.hidden_field :login_name %>
-      <%= f.hidden_field :display_name %>
-      <%= f.hidden_field :password %>
-      <%= f.hidden_field :password_confirmation %>
+      <%= f.hidden_field :login_name, value: @user.login_name %>
+      <%= f.hidden_field :display_name, value: @user.display_name %>
+      <%= f.hidden_field :password, value: params[:user][:password_confirmation] %>
+      <%= f.hidden_field :password_confirmation, value: params[:user][:password_confirmation] %>
+      <p><%= submit_tag "作成", class: "btn label-custom" %></p>
     <% end %>
   </div>
 </div>
