@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     if user = UserPasswordAuthenticator.verify(params[:login_name], params[:password])
       user.update_column(:logged_at, Time.current)
       session[:current_user_id] = user.id
+      flash.notice = "ログインしました。"
       if params[:from].present?
         redirect_to params[:from]
       else

@@ -5,7 +5,7 @@
   <div class="panel-body">
     <%= form_tag :session do %>
       <%= content_tag :p, @error_title if @error_title %>
-      <p><%= text_field_tag :login, "", class: "form-control", placeholder: "ログイン名" %></p>
+      <p><%= text_field_tag :login_name, "", class: "form-control", placeholder: "ログイン名" %></p>
       <p><%= password_field_tag :password, "", class: "form-control", placeholder: "パスワード" %></p>
       <%= hidden_field_tag "from", "", value: @from %>
       <p><%= submit_tag "ログイン", class: "btn label-custom" %></p>

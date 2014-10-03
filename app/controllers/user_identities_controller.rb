@@ -5,12 +5,13 @@ class UserIdentitiesController < ApplicationController
 
   def confirm
     @user = User.new new_user
+    if @user.invalid?
+      render action: :new
+    end
   end
 
   def create
     @user = User.new new_user
-    p params[:login_name]
-    p params[:password]
     if AdminPasswordAuthenticator.verify(params[:login_name], params[:password])
       if @user.new_user_name == "1"
         @user.setting_password = true
@@ -32,6 +33,7 @@ class UserIdentitiesController < ApplicationController
         session.delete(:omniauth_info)
         session[:current_user_id] = ui.user_id
         ui.user.update_column(:logged_at, Time.current)
+        flash.notice = "完了しました。"
         redirect_to :root
       else
         render action: :new

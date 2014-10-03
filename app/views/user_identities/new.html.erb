@@ -5,6 +5,7 @@
   <div class="panel-body">
     <%= form_for @user, url: :confirm_user_identity, method: :post do |f| %>
       <p>
+        <%= format_error_message(@user, :select_user_name, f).html_safe %>
         <% full_user = User.where(created: false) %>
         <%= f.select :select_user_name, full_user.map{|u| [u.display_name, u.id]},
           { include_blank: "ユーザーを選択" }, { class: "form-control" } %>

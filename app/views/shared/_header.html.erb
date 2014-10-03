@@ -17,8 +17,11 @@
         <li><a href="#">リンク</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "ログイン", :new_session %></li>
-        <li></li>
+        <% if current_user %>
+          <li><%= link_to "ログアウト", :session, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+        <% else %>
+          <li><%= link_to "ログイン", :new_session %></li>
+        <% end %>
       </ul>
     </div>
   </div>

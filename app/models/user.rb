@@ -37,6 +37,11 @@ class User < ActiveRecord::Base
   attr_reader :new_email
   attr_accessor :select_user_name, :new_user_name
 
+  validate :check_select_user_name
+  validate :check_login_name
+  validate :check_display_name
+  validate :check_password
+
   before_save do
     unless self.birthday.nil?
       self.age = age_calculation
@@ -71,6 +76,45 @@ class User < ActiveRecord::Base
         end
       else
         return false
+      end
+    end
+  end
+
+  private
+  def check_select_user_name
+    if new_user_name == "0"
+      if select_user_name.blank?
+        errors.add(:select_user_name, :blank)
+      end
+    end
+  end
+
+  def check_login_name
+    if new_user_name == "1" || new_user_name == true
+      if login_name.blank?
+        errors.add(:login_name, :blank)
+      else
+        if login_name !~ /\A[a-z0-9_+-]+\z/
+          errors.add(:login_name, :invalid)
+        elsif User.all.exists?(login_name: login_name)
+          errors.add(:login_anme, :already)
+        end
+      end
+    end
+  end
+
+  def check_display_name
+    if new_user_name == "1" || new_user_name == true
+       if display_name.blank?
+        errors.add(:display_name, :blank)
+      end
+    end
+  end
+
+  def check_password
+    if new_user_name == "1" || new_user_name == true
+      if password.blank?
+        errors.add(:password, :blank)
       end
     end
   end
