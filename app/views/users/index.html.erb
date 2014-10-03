@@ -1,12 +1,19 @@
 <% @users.each do |user| %>
-  <div class="panel panel-default member">
-    <div class="panel-heading"><%= link_to user.number, user %></div>
+  <div class="panel panel-custom member">
+    <div class="panel-heading">
+      <%= link_to user do %>
+        <%= user.number %>
+        <span style="float: right;" title="<%= user.display_name %>">
+          <%= truncate(user.display_name, length: 10) %>
+        </span>
+      <% end %>
+    </div>
     <div class="panel-body">
       <div class="thumbnailBox">
         <div class="noImage">No Image</div>
       </div>
       <div class="descriptionBox">
-        <p><%= user.display_age %>：<%= truncate(user.display_name, length: 8) %></p>
+        <p style="text-align: center;"><%= user.display_age %></p>
         <span title="<%= user.description %>"><%= truncate(user.description, length: 30) %></span>
       </div>
     </div>

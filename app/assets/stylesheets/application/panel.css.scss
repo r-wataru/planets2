@@ -1,0 +1,30 @@
+.panel-custom {
+  border-color: #0072ab;
+  a { color: white;}
+}
+.member {
+  width: 184px;
+  height: 320px;
+  float: left;
+  display: block;
+  margin: 10px;
+  .panel-heading {
+    background-image: -webkit-gradient(linear, left 0%, left 100%, from(#00aaff), to(#0088cc));
+    background-image: -webkit-linear-gradient(top, #00aaff, 0%, #0088cc, 100%);
+    background-image: -moz-linear-gradient(top, #00aaff 0%, #0088cc 100%);
+    background-image: linear-gradient(to bottom, #00aaff 0%, #0088cc 100%);
+  }
+  .panel-body .thumbnailBox .noImage {
+    width: 152px;
+    height: 152px;
+    display: table-cell;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    vertical-align: middle;
+    background: gray;
+  }
+  .panel-body .descriptionBox {
+    margin-top: 5px;
+  }
+}
