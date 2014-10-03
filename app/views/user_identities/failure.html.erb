@@ -1,0 +1,14 @@
+<p><%= t('.failure_message') %></p>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var div = document.getElementById("flash");
+    if (div && window.opener) {
+      window.close();
+    }
+  });
+</script>
+
+<div id="flash" style="color:red">
+  <a href="#" onClick="window.close(); return false;"><%= t('.close') %></a>
+</div>

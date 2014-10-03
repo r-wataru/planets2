@@ -1,0 +1,16 @@
+<div class="panel panel-custom session">
+  <div class="panel-heading">
+    <p>確認と管理者確認</p>
+  </div>
+  <div class="panel-body">
+    <%= form_for @user, method: :post do |f| %>
+      あなたは<strong><%= User.find_by(id: @user.select_user_name).try(:display_name) %></strong>ですか？
+      <%= f.hidden_field :new_user_name, value: @user.new_user_name %>
+      <%= f.hidden_field :new_email %>
+      <%= f.hidden_field :login_name %>
+      <%= f.hidden_field :display_name %>
+      <%= f.hidden_field :password %>
+      <%= f.hidden_field :password_confirmation %>
+    <% end %>
+  </div>
+</div>

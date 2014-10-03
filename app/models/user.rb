@@ -33,7 +33,8 @@ class User < ActiveRecord::Base
   has_many :individual_results
   has_many :individual_total_results
   
-  attr_accessor :select_user_name, :select_user_name
+  attr_reader :new_email
+  attr_accessor :select_user_name, :new_user_name
 
   before_save do
     unless self.birthday.nil?
