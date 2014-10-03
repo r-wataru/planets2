@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   # ログイン・ログアウト
   resource :session, only: [ :new, :create, :destroy ]
-
+  
   # FacebookでログインとScreenName作成
   resource :user_identity, only: [ :new, :create ]
   get 'auth/facebook/callback', to: "sessions#callback"

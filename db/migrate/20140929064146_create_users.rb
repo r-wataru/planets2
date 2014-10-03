@@ -2,11 +2,15 @@ class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.integer :number
+      t.string :login_name
+      t.string :password_digest
       t.string :display_name
       t.date :birthday
       t.integer :age
       t.datetime :logged_at
       t.text :description
+      t.boolean :created, null: false, default: false
+      t.boolean :checked, null: false, default: false
       t.datetime :deleted_at
 
       t.timestamps

@@ -2,16 +2,20 @@
 #
 # Table name: users
 #
-#  id           :integer          not null, primary key
-#  number       :integer
-#  display_name :string(255)
-#  birthday     :date
-#  age          :integer
-#  logged_at    :datetime
-#  description  :text
-#  deleted_at   :datetime
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id              :integer          not null, primary key
+#  number          :integer
+#  login_name      :string(255)
+#  password_digest :string(255)
+#  display_name    :string(255)
+#  birthday        :date
+#  age             :integer
+#  logged_at       :datetime
+#  description     :text
+#  created         :boolean          default(FALSE), not null
+#  checked         :boolean          default(FALSE), not null
+#  deleted_at      :datetime
+#  created_at      :datetime
+#  updated_at      :datetime
 #
 # Indexes
 #
@@ -22,10 +26,14 @@ require 'csv'
 require "kconv"
 require 'nkf'
 class User < ActiveRecord::Base
+  include MiniAuth
+
   has_many :pitcher_results
   has_many :pitcher_total_results
   has_many :individual_results
   has_many :individual_total_results
+  
+  attr_accessor :select_user_name, :select_user_name
 
   before_save do
     unless self.birthday.nil?

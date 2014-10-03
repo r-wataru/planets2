@@ -1,13 +1,21 @@
 class SessionsController < ApplicationController
   def new
+    if params[:from].present?
+      session[:from] = "from"
+    end
   end
 
   def create
-    if admin = AdminPasswordAuthenticator.verify(params[:login_name], params[:password])
-      session[:current_admin_id] = admin.id
-      redirect_to :root
+    if user = UserPasswordAuthenticator.verify(params[:login_name], params[:password])
+      user.update_column(:logged_at, Time.current)
+      session[:current_user_id] = user.id
+      if params[:from].present?
+        redirect_to params[:from]
+      else
+        redirect_to :root
+      end
     else
-      flash.now.alert = "Login name or Password is incorrect"
+      flash.now.alert = "ログイン名またはパスワードが間違っています。"
       render action: :new
     end
   end

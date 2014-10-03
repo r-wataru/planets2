@@ -1,6 +1,13 @@
 .panel-custom {
   border-color: #0072ab;
   a { color: white;}
+  p { color: white; text-align: center; margin: 0; }
+}
+.panel-heading {
+  background: -webkit-gradient(linear, left 0%, left 100%, from(#00aaff), to(#0088cc));
+  background: -webkit-linear-gradient(top, #00aaff, 0%, #0088cc, 100%);
+  background: -moz-linear-gradient(top, #00aaff 0%, #0088cc 100%);
+  background: linear-gradient(to bottom, #00aaff 0%, #0088cc 100%);
 }
 .member {
   width: 184px;
@@ -8,12 +15,6 @@
   float: left;
   display: block;
   margin: 10px;
-  .panel-heading {
-    background-image: -webkit-gradient(linear, left 0%, left 100%, from(#00aaff), to(#0088cc));
-    background-image: -webkit-linear-gradient(top, #00aaff, 0%, #0088cc, 100%);
-    background-image: -moz-linear-gradient(top, #00aaff 0%, #0088cc 100%);
-    background-image: linear-gradient(to bottom, #00aaff 0%, #0088cc 100%);
-  }
   .panel-body .thumbnailBox .noImage {
     width: 152px;
     height: 152px;
@@ -27,4 +28,28 @@
   .panel-body .descriptionBox {
     margin-top: 5px;
   }
+}
+.session {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+  .panel-body {
+    a { color: blue; }
+    p { margin: 10px 0; }
+  }
+}
+
+.label-custom {
+  width: 100%;
+  background: -webkit-gradient(linear, left 0%, left 100%, from(#00aaff), to(#0088cc));
+  background: -webkit-linear-gradient(top, #00aaff, 0%, #0088cc, 100%);
+  background: -moz-linear-gradient(top, #00aaff 0%, #0088cc 100%);
+  background: linear-gradient(to bottom, #00aaff 0%, #0088cc 100%); 
+}
+
+#facebookButton {
+  background: -webkit-gradient(linear, left 0%, left 100%, from(#00aaff), to(#0088cc));
+  background: -webkit-linear-gradient(top, #00aaff, 0%, #0088cc, 100%);
+  background: -moz-linear-gradient(top, #00aaff 0%, #0088cc 100%);
+  background: linear-gradient(to bottom, #00aaff 0%, #0088cc 100%); 
 }

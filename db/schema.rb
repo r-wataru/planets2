@@ -248,11 +248,15 @@ ActiveRecord::Schema.define(version: 20140930080546) do
 
   create_table "users", force: true do |t|
     t.integer  "number"
+    t.string   "login_name"
+    t.string   "password_digest"
     t.string   "display_name"
     t.date     "birthday"
     t.integer  "age"
     t.datetime "logged_at"
     t.text     "description"
+    t.boolean  "created",         default: false, null: false
+    t.boolean  "checked",         default: false, null: false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
