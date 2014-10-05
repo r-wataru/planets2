@@ -9,7 +9,9 @@
         <li class="<%= params[:controller] == "users" ? "active" : "" %>">
           <%= link_to "メンバー", :users %>
         </li>
-        <li><a href="#">成績表</a></li>
+        <li class="<%= params[:controller] == "results" ? "active" : "" %>">
+          <%= link_to "成績表", :results %>
+        </li>
         <li><a href="#">スケジュール</a></li>
         <li><a href="#">掲示板</a></li>
         <li><a href="#">投票</a></li>

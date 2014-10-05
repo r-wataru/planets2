@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   
   get 'auth/facebook/callback', to: "sessions#callback"
   get "auth/failure", to: "sessions#failure"
+  
+  resources :results
 end

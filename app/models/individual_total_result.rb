@@ -44,6 +44,14 @@ class IndividualTotalResult < ActiveRecord::Base
   belongs_to :season
   serialize :set_games
   
+  def total_hits
+    self.single.to_i + self.double.to_i + self.triple.to_i + self.home_run.to_i
+  end
+  
+  def total_bases
+    self.single.to_i + self.double.to_i * 2 + self.triple.to_i * 3 + self.home_run.to_i * 4
+  end
+  
   def update_data(game)
     result = user.individual_results.find_by(game_id: game.id)
     if self.set_games.nil?

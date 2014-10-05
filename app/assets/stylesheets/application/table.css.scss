@@ -1,0 +1,11 @@
+table.result {
+  width: 100%;
+  border: 1px solid #666;
+  border-collapse: collapse;
+  text-align: center;
+    th {
+      text-align: center;
+      background: #ccc;
+      a { color: blue; }
+    }
+}
