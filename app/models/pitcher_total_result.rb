@@ -73,5 +73,13 @@ class PitcherTotalResult < ActiveRecord::Base
           set_games: array)
       end
     end
+
+    def team_earned_run_average(results)
+      array = []
+      results.each do |result|
+        array << result.earned_run_average.to_f
+      end
+      return (array.inject(:+) / array.count).round(3)
+    end
   end
 end

@@ -117,5 +117,13 @@ class IndividualTotalResult < ActiveRecord::Base
           set_games: array)
       end
     end
+
+    def team_batting_average(results)
+      array = []
+      results.each do |result|
+        array << result.batting_average.to_f
+      end
+      return (array.inject(:+) / array.count).round(3)
+    end
   end
 end

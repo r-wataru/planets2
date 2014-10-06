@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140930080546) do
     t.text     "description"
     t.datetime "played_at",                     null: false
     t.string   "total_result",                  null: false
+    t.integer  "winning",                       null: false
     t.text     "result1"
     t.text     "result2"
     t.integer  "plate_appearances", default: 0, null: false

@@ -6,6 +6,7 @@ class CreateGames < ActiveRecord::Migration
       t.text :description
       t.datetime :played_at, null: false
       t.string :total_result, null: false
+      t.integer :winning, null: false
       t.text :result1
       t.text :result2
       t.integer :plate_appearances, null: false, default: 0 # 打席数

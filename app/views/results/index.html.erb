@@ -1,3 +1,20 @@
+<div class="panel panel-custom full">
+  <div class="panel-heading">
+    <p>結果</p>
+  </div>
+  <div class="panel-body" style="text-align: center;">
+    <strong>
+      <%= @season.games.map(&:winning).count {|a| a == 0 } %>勝
+      <%= @season.games.map(&:winning).count {|a| a == 1 } %>負
+      <%= @season.games.map(&:winning).count {|a| a == 2 } %>引き分け
+      防御率：<%= PitcherTotalResult.team_earned_run_average(@pitcher_results) %>
+      打率：<%= IndividualTotalResult.team_batting_average(@no_results) %>
+    </strong>
+  </div>
+</div>
+
+<!-- 試合 -->
+<%= render "results/games" %>
 <!-- 投手 -->
 <%= render "results/pitcher_results" %>
 <!-- 野手 -->

@@ -5,6 +5,7 @@ class ResultsController < ApplicationController
     regulation_pitcher_number = @season.games.count * 1
     @results = @season.individual_total_results.
       where("#{regulation_number} < plate_appearances")
+    @no_results = @season.individual_total_results
     @pitcher_results = @season.pitcher_total_results.
       where("#{regulation_pitcher_number} < pitching_number")
     # 野手成績

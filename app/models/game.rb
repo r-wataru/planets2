@@ -8,6 +8,7 @@
 #  description       :text
 #  played_at         :datetime         not null
 #  total_result      :string(255)      not null
+#  winning           :integer          not null
 #  result1           :text
 #  result2           :text
 #  plate_appearances :integer          default(0), not null
@@ -53,6 +54,18 @@ class Game < ActiveRecord::Base
 
   scope :active, ->{ where(deleted_at: nil) }
 
+  def display_winning
+    display = ""
+    if self.winning == 0
+      display = "勝ち"
+    elsif self.winning == 1
+      display = "負け"
+    else
+      display = "引き分け"
+    end
+    return display
+  end
+
   class << self
     def import_csv
       path = Rails.root.join("db", "seeds", "data", "mla_export_p_game.csv")
@@ -71,6 +84,7 @@ class Game < ActiveRecord::Base
               description: data_arr[5],
               played_at: date,
               total_result: data_arr[4],
+              winning: data_arr[3],
               plate_appearances: data_arr[6],
               at_bats: data_arr[7],
               single: data_arr[8],
