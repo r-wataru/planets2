@@ -12,3 +12,11 @@ body {
   margin: 0 auto 50px auto;
   display: block;
 }
+
+.topDesign {
+  background: url(image_path('marusan.jpg')) no-repeat;
+  padding: 10px 40px 280px 40px;
+  .pageDescription {
+    background: transparent;
+  }
+}
