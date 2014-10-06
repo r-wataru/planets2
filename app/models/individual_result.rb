@@ -39,6 +39,17 @@ require 'csv'
 require "kconv"
 require 'nkf'
 class IndividualResult < ActiveRecord::Base
+  belongs_to :game
+  belongs_to :user
+
+  def total_hits
+    self.single_hits.to_i + self.double_hits.to_i + self.triple_hits.to_i + self.home_run.to_i
+  end
+
+  def total_bases
+    self.single_hits.to_i + self.double_hits.to_i * 2 + self.triple_hits.to_i * 3 + self.home_run.to_i * 4
+  end
+
   class << self
     def import_csv
       path = Rails.root.join("db", "seeds", "data", "mla_export_p_batter.csv")

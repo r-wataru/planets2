@@ -1,0 +1,69 @@
+<div class="panel panel-custom full">
+  <div class="panel-heading">
+    <p>野手成績</p>
+  </div>
+  <div class="panel-body">
+    <table class="result" border="1">
+      <tr>
+        <th>試合日</th>
+        <th>試合名</th>
+        <th>打率</th>
+        <th>打席数</th>
+        <th>打数</th>
+        <th>安打</th>
+        <th>二塁打</th>
+        <th>三塁打</th>
+        <th>本塁打</th>
+        <th>塁打数</th>
+        <th>打点</th>
+        <th>得点</th>
+        <th>三振</th>
+        <th>四球</th>
+        <th>死球</th>
+        <th>犠打</th>
+        <th>犠飛</th>
+        <th>盗塁</th>
+        <th>失策出塁</th>
+        <th>出塁率</th>
+        <th>長打率</th>
+        <th>内ゴロ</th>
+        <th>外ゴロ</th>
+        <th>内飛</th>
+        <th>外飛</th>
+        <th>内直</th>
+        <th>外直</th>
+      </tr>
+      <% @user.individual_results.order("id DESC").each do |result| %>
+        <tr>
+          <td><%= result.game.played_at.strftime("%Y/%m/%d") %></td>
+          <td><%= result.game.name %></td>
+          <td><%= sprintf( "%.3f", Rate.batting_average(result)) %></td>
+          <td><%= result.plate_appearances %></td>
+          <td><%= result.at_bats %></td>
+          <td><%= result.total_hits %></td>
+          <td><%= result.double_hits %></td>
+          <td><%= result.triple_hits %></td>
+          <td><%= result.home_run %></td>
+          <td><%= result.total_bases %></td>
+          <td><%= result.runs_batted_in %></td>
+          <td><%= result.runs_scored %></td>
+          <td><%= result.strikeouts %></td>
+          <td><%= result.base_on_balls %></td>
+          <td><%= result.hit_by_pitches %></td>
+          <td><%= result.sacrifice_bunts %></td>
+          <td><%= result.sacrifice_flies %></td>
+          <td><%= result.stolen_bases %></td>
+          <td><%= result.gaffe %></td>
+          <td><%= sprintf( "%.3f", Rate.base_percentage(result)) %></td>
+          <td><%= sprintf( "%.3f", Rate.slugging_percentage(result)) %></td>
+          <td><%= result.infield_grounder %></td>
+          <td><%= result.outfield_grounder %></td>
+          <td><%= result.infield_fly %></td>
+          <td><%= result.outfield_fly %></td>
+          <td><%= result.infield_linera %></td>
+          <td><%= result.out_linera %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
