@@ -7,8 +7,20 @@
       <%= @season.games.map(&:winning).count {|a| a == 0 } %>勝
       <%= @season.games.map(&:winning).count {|a| a == 1 } %>負
       <%= @season.games.map(&:winning).count {|a| a == 2 } %>引き分け
-      防御率：<%= PitcherTotalResult.team_earned_run_average(@pitcher_results) %>
-      打率：<%= IndividualTotalResult.team_batting_average(@no_results) %>
+      <%
+        b = @season.pitcher_total_results.map(&:remorse_point).inject(:+)
+        c = @season.pitcher_total_results.map(&:pitching_number).inject(:+)
+        d = (b * 9).quo(c).to_f.round(2)
+      %>
+      防御率：<%= d %>
+      <%
+        a = @season.games.map(&:at_bats).inject(:+)
+        t = @season.games.map(&:single).inject(:+) + 
+          @season.games.map(&:double).inject(:+) + 
+          @season.games.map(&:triple).inject(:+) + 
+          @season.games.map(&:home_run).inject(:+)
+      %>
+      打率：<%= sprintf( "%.3f", t.quo(a).to_f.round(3)) %>
     </strong>
   </div>
 </div>
