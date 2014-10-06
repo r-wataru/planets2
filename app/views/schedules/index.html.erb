@@ -1,0 +1,35 @@
+<div class="panel panel-custom full">
+  <div class="panel-heading">
+    <p>
+      <span style="float: left;"><%= link_to "<<", schedules_path(change: "#{@now_month.last_month.strftime('%Y%m')}") %></span>
+      <%= @year %>年<%= @month %>月
+      <span style="float: right;"><%= link_to ">>", schedules_path(change: "#{@now_month.next_month.strftime('%Y%m')}") %></span>
+    </p>
+  </div>
+  <div class="panel-body" style="text-align: center;">
+    <table class="schedule" border="1">
+      <tr>
+        <th class="sun">日</th>
+        <th>月</th>
+        <th>火</th>
+        <th>水</th>
+        <th>木</th>
+        <th>金</th>
+        <th class="sat">土</th>
+      </tr>
+      <% @schedules.each do |schedule| %>
+        <tr>
+          <% schedule.each_with_index do |day, i| %>
+            <% if i == 0 %>
+              <td class="sun"><%= day %></td>
+            <% elsif i == 6 %>
+              <td class="sat"><%= day %></td>
+            <% else %>
+              <td><%= day %></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

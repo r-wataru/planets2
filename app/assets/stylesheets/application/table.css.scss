@@ -3,9 +3,26 @@ table.result {
   border: 1px solid #666;
   border-collapse: collapse;
   text-align: center;
-    th {
-      text-align: center;
-      background: #ccc;
-      a { color: blue; }
-    }
+  th {
+    text-align: center;
+    background: #ccc;
+    a { color: blue; }
+  }
+}
+
+table.schedule {
+  width: 100%;
+  border: 1px solid #666;
+  border-collapse: collapse;
+  text-align: left;
+  th.sat, td.sat {
+    background: #3399FF;
+  }
+  th.sun, td.sun {
+    background: #FF82B2;
+  }
+  td {
+    height: 100px;
+    vertical-align: top;
+  }
 }
