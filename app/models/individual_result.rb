@@ -7,9 +7,9 @@
 #  game_id           :integer          not null
 #  plate_appearances :integer          default(0), not null
 #  at_bats           :integer          default(0), not null
-#  single            :integer          default(0), not null
-#  double            :integer          default(0), not null
-#  triple            :integer          default(0), not null
+#  single_hits       :integer          default(0), not null
+#  double_hits       :integer          default(0), not null
+#  triple_hits       :integer          default(0), not null
 #  home_run          :integer          default(0), not null
 #  base_on_balls     :integer          default(0), not null
 #  hit_by_pitches    :integer          default(0), not null
@@ -54,9 +54,9 @@ class IndividualResult < ActiveRecord::Base
               game_id: data_arr[0],
               plate_appearances: data_arr[3].to_i,
               at_bats: data_arr[4].to_i,
-              single: data_arr[5].to_i,
-              double: data_arr[6].to_i,
-              triple: data_arr[7].to_i,
+              single_hits: data_arr[5].to_i,
+              double_hits: data_arr[6].to_i,
+              triple_hits: data_arr[7].to_i,
               home_run: data_arr[8].to_i,
               base_on_balls: data_arr[9].to_i,
               hit_by_pitches: data_arr[10].to_i,

@@ -104,9 +104,9 @@ ActiveRecord::Schema.define(version: 20140930080546) do
     t.integer  "game_id",                       null: false
     t.integer  "plate_appearances", default: 0, null: false
     t.integer  "at_bats",           default: 0, null: false
-    t.integer  "single",            default: 0, null: false
-    t.integer  "double",            default: 0, null: false
-    t.integer  "triple",            default: 0, null: false
+    t.integer  "single_hits",       default: 0, null: false
+    t.integer  "double_hits",       default: 0, null: false
+    t.integer  "triple_hits",       default: 0, null: false
     t.integer  "home_run",          default: 0, null: false
     t.integer  "base_on_balls",     default: 0, null: false
     t.integer  "hit_by_pitches",    default: 0, null: false
@@ -135,9 +135,9 @@ ActiveRecord::Schema.define(version: 20140930080546) do
     t.integer  "season_id",                        null: false
     t.integer  "plate_appearances",   default: 0,  null: false
     t.integer  "at_bats",             default: 0,  null: false
-    t.integer  "single",              default: 0,  null: false
-    t.integer  "double",              default: 0,  null: false
-    t.integer  "triple",              default: 0,  null: false
+    t.integer  "single_hits",         default: 0,  null: false
+    t.integer  "double_hits",         default: 0,  null: false
+    t.integer  "triple_hits",         default: 0,  null: false
     t.integer  "home_run",            default: 0,  null: false
     t.integer  "base_on_balls",       default: 0,  null: false
     t.integer  "hit_by_pitches",      default: 0,  null: false

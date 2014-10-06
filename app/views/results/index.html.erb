@@ -12,8 +12,8 @@
         <th><%= link_to "打席数", results_path(change: "plate_appearances") %></th>
         <th><%= link_to "打数", results_path(change: "at_bats") %></th>
         <th><%= link_to "安打", results_path(change: "hits") %></th>
-        <th><%= link_to "二塁打", results_path(change: "double") %></th>
-        <th><%= link_to "三塁打", results_path(change: "triple") %></th>
+        <th><%= link_to "二塁打", results_path(change: "double_hits") %></th>
+        <th><%= link_to "三塁打", results_path(change: "triple_hits") %></th>
         <th><%= link_to "本塁打", results_path(change: "home_run") %></th>
         <th><%= link_to "塁打数", results_path(change: "total_bases") %></th>
         <th><%= link_to "打点", results_path(change: "runs_batted_in") %></th>
@@ -25,7 +25,7 @@
         <th><%= link_to "犠飛", results_path(change: "sacrifice_flies") %></th>
         <th><%= link_to "盗塁", results_path(change: "stolen_bases") %></th>
         <th><%= link_to "出塁率*", results_path(change: "base_percentage") %></th>
-        <th><%= link_to "長打率*", results_path(change: "slugging_percentage") %></th>												 	
+        <th><%= link_to "長打率*", results_path(change: "slugging_percentage") %></th>
       </tr>
       <% @results.each_with_index do |result, idx| %>
         <tr>
@@ -36,8 +36,8 @@
           <td><%= result.plate_appearances %></td>
           <td><%= result.at_bats %></td>
           <td><%= result.total_hits %></td>
-          <td><%= result.double %></td>
-          <td><%= result.triple %></td>
+          <td><%= result.double_hits %></td>
+          <td><%= result.triple_hits %></td>
           <td><%= result.home_run %></td>
           <td><%= result.total_bases %></td>
           <td><%= result.runs_batted_in %></td>
@@ -49,7 +49,7 @@
           <td><%= result.sacrifice_flies %></td>
           <td><%= result.stolen_bases %></td>
           <td><%= sprintf( "%.3f", result.base_percentage.to_f) %></td>
-          <td><%= sprintf( "%.3f", result.slugging_percentage.to_f) %></td>				
+          <td><%= sprintf( "%.3f", result.slugging_percentage.to_f) %></td>
         </tr>
       <% end %>
     </table>

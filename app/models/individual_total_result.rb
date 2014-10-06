@@ -7,9 +7,9 @@
 #  season_id           :integer          not null
 #  plate_appearances   :integer          default(0), not null
 #  at_bats             :integer          default(0), not null
-#  single              :integer          default(0), not null
-#  double              :integer          default(0), not null
-#  triple              :integer          default(0), not null
+#  single_hits         :integer          default(0), not null
+#  double_hits         :integer          default(0), not null
+#  triple_hits         :integer          default(0), not null
 #  home_run            :integer          default(0), not null
 #  base_on_balls       :integer          default(0), not null
 #  hit_by_pitches      :integer          default(0), not null
@@ -43,15 +43,15 @@ class IndividualTotalResult < ActiveRecord::Base
   belongs_to :user
   belongs_to :season
   serialize :set_games
-  
+
   def total_hits
-    self.single.to_i + self.double.to_i + self.triple.to_i + self.home_run.to_i
+    self.single_hits.to_i + self.double_hits.to_i + self.triple_hits.to_i + self.home_run.to_i
   end
-  
+
   def total_bases
-    self.single.to_i + self.double.to_i * 2 + self.triple.to_i * 3 + self.home_run.to_i * 4
+    self.single_hits.to_i + self.double_hits.to_i * 2 + self.triple_hits.to_i * 3 + self.home_run.to_i * 4
   end
-  
+
   def update_data(game)
     result = user.individual_results.find_by(game_id: game.id)
     if self.set_games.nil?
@@ -62,9 +62,9 @@ class IndividualTotalResult < ActiveRecord::Base
     unless result.nil?
       self.plate_appearances += result.plate_appearances
       self.at_bats += result.at_bats
-      self.single += result.single
-      self.double += result.double
-      self.triple += result.triple
+      self.single_hits += result.single_hits
+      self.double_hits += result.double_hits
+      self.triple_hits += result.triple_hits
       self.home_run += result.home_run
       self.base_on_balls += result.base_on_balls
       self.hit_by_pitches += result.hit_by_pitches
@@ -84,7 +84,7 @@ class IndividualTotalResult < ActiveRecord::Base
       self.save
     end
   end
-  
+
   class << self
     def new_data(user,season, game)
       array = [game.id]
@@ -95,9 +95,9 @@ class IndividualTotalResult < ActiveRecord::Base
           season_id: season.id,
           plate_appearances: result.plate_appearances,
           at_bats: result.at_bats,
-          single: result.single,
-          double: result.double,
-          triple: result.triple,
+          single_hits: result.single_hits,
+          double_hits: result.double_hits,
+          triple_hits: result.triple_hits,
           home_run: result.home_run,
           base_on_balls: result.base_on_balls,
           hit_by_pitches: result.hit_by_pitches,

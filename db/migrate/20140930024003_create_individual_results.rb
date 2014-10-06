@@ -5,9 +5,9 @@ class CreateIndividualResults < ActiveRecord::Migration
       t.references :game, null: false
       t.integer :plate_appearances, null: false, default: 0   # 打席数
       t.integer :at_bats, null: false, default: 0             # 打数
-      t.integer :single, null: false, default: 0              # シングルヒット
-      t.integer :double, null: false, default: 0              # ２ベース
-      t.integer :triple, null: false, default: 0              # ３ベース
+      t.integer :single_hits, null: false, default: 0         # シングルヒット
+      t.integer :double_hits, null: false, default: 0         # ２ベース
+      t.integer :triple_hits, null: false, default: 0         # ３ベース
       t.integer :home_run, null: false, default: 0            # ホームラン
       t.integer :base_on_balls	, null: false, default: 0     # 四球
       t.integer :hit_by_pitches	, null: false, default: 0     # 死球
