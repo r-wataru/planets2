@@ -6,3 +6,5 @@ Game.import_csv
 IndividualResult.import_csv
 # ピッチャーの成績
 PitcherResult.import_csv
+# 個人の能力
+IndividualCompetence.import_csv

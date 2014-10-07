@@ -1,0 +1,41 @@
+<div class="panel panel-custom full">
+  <div class="panel-heading">
+    <p>更新</p>
+  </div>
+  <div class="panel-body">
+    <%= form_for @user_form, as: 'form', url: :user do |f| %>
+      <%= f.fields_for :user, f.object.user do |ff| %>
+        <%= ff.text_field :number %>
+        <%= ff.text_field :login_name %>
+        <%= ff.text_field :display_name %>
+        <%= ff.date_select :birthday, include_blank: true, start_year: 1940, end_year: Time.now.year, use_month_number: false %>
+        <%= ff.text_area :description %>
+      <% end %>
+      <%= f.fields_for :individual_competence, f.object.user.individual_competence do |ff| %>
+        <%= ff.check_box :pitcher %>
+        <%= ff.check_box :catcher %>
+        <%= ff.check_box :first %>
+        <%= ff.check_box :second %>
+        <%= ff.check_box :short %>
+        <%= ff.check_box :third %>
+        <%= ff.check_box :outfield %>
+        <%= ff.text_field :line %>
+        <%= ff.text_field :meet %>
+        <%= ff.text_field :power %>
+        <%= ff.text_field :running_ability %>
+        <%= ff.text_field :shoulder_power %>
+        <%= ff.text_field :defense %>
+        <%= ff.text_field :speed %>
+        <%= ff.text_field :controll %>
+        <%= ff.text_field :stamina %>
+        <%= ff.radio_button :throw, 0 %>
+        <%= ff.radio_button :throw, 1 %>
+        <%= ff.radio_button :throw, 2 %>
+        <%= ff.radio_button :swing, 0 %>
+        <%= ff.radio_button :swing, 1 %>
+        <%= ff.radio_button :swing, 2 %>
+      <% end %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

@@ -28,6 +28,7 @@ require 'nkf'
 class User < ActiveRecord::Base
   include MiniAuth
 
+  has_one :individual_competence
   has_many :emails
   has_many :pitcher_results
   has_many :pitcher_total_results
@@ -119,4 +120,3 @@ class User < ActiveRecord::Base
     end
   end
 end
-#;投;捕;一;二;遊;三;外;弾丸;ミート;パワー;走力;肩力;守力;球速;コントロール;スタミナ;守備内容;投げ方;打ち方
