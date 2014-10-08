@@ -1,33 +1,62 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.1.2'
 
-gem "rails", "~> 4.1.5"
+gem 'rails', '4.1.6'
+gem 'mysql2'
 
-gem 'mysql2', '~> 0.3.16'
-gem 'mini_auth', '~> 1.0.0'
 gem "json", "~> 1.8.1"
 gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jbuilder', '~> 2.0'
+gem 'sdoc', '~> 0.4.0', group: :doc
+
 gem 'rails-i18n'
 gem 'will_paginate'
 gem "omniauth", "~> 1.2.2"
 gem 'omniauth-facebook', '~> 2.0.0'
 gem 'rmagick', '~> 2.13.3', :require => 'RMagick'
-gem "nokogiri", "~> 1.6.3.1"
 
+# Database related gems
+gem 'foreigner', '~> 1.6.1'
+gem 'database_cleaner', '~> 1.2.0'
+
+# Custom Validators
+gem 'date_validator', '~> 0.7.0'
+gem 'email_validator', '~> 1.4.0'
+
+# Misc.
+gem 'bcrypt', '~> 3.1.7'
+gem 'nokogiri', '~> 1.6.3'
+gem 'factory_girl_rails', '~> 4.4.1'
+
+# Asset related gems
 group :assets do
   gem 'sass-rails',   '~> 4.0.3'
-  gem 'coffee-rails', '~> 4.0.1'
-  gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.3.0'
+  gem 'therubyracer', :platforms => :ruby
   gem 'bootstrap-sass', '~> 3.2.0.2'
+  gem 'autoprefixer-rails'
+  gem 'font-awesome-rails'
 end
+
+# 本プロジェクトでは CoffeeScript を利用しないが、Tilt の警告を消すために必要。
+gem 'coffee-script', '>= 2.2.0'
 
 group :development do
   gem 'annotate', '~> 2.6.5'
   gem 'thin', '~> 1.5.0'
   gem 'spring', require: false
-  gem 'spring-commands-rspec', require: false
+  gem 'spring-commands-rspec', '~> 1.0.2'
+  gem 'quiet_assets', '~> 1.0.3'
+  gem 'pry', '~> 0.10.1'
+  gem 'pry-rails', '~> 0.3.2'
+  gem 'pry-byebug', '~> 2.0.0'
+  gem 'capistrano', '~> 3.2.1', require: false
+  gem 'capistrano-rails', '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-maintenance', github: 'capistrano/maintenance', require: false
+  gem 'capistrano3-unicorn', '~> 0.2.1', require: false
 end
 
 group :test do
@@ -38,7 +67,7 @@ group :test do
   gem 'mocha', require: false
   gem 'rspec-rails-mocha', '~> 0.3.2', require: false
   gem 'bourne', '~> 1.5.0'
-  gem 'capybara', '~> 2.4.3'
+  gem 'capybara', '~> 2.4.1'
   gem 'capybara-webkit', '~> 1.3.0'
   gem 'connection_pool', '~> 2.0.0'
   gem "simplecov", "~> 0.9.1", require: false
@@ -49,14 +78,6 @@ group :development, :test do
   gem 'timecop', '~> 0.7.1'
 end
 
-group :development, :test, :staging, :demo, :production do
-  gem 'factory_girl_rails', '~> 4.4.1'
-end
-
-group :development, :staging, :demo, :production do
-  gem 'database_cleaner', '~> 1.3.0'
-end
-
-group :staging do
-  gem 'newrelic_rpm'
+group :staging, :production do
+  gem 'unicorn', '~> 4.8.3'
 end

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140930080546) do
 
   create_table "administrators", force: true do |t|
     t.string   "login_name",                      null: false
-    t.string   "password_digest",                 null: false
+    t.string   "hashed_password"
     t.boolean  "super_user",      default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -251,7 +251,7 @@ ActiveRecord::Schema.define(version: 20140930080546) do
   create_table "users", force: true do |t|
     t.integer  "number"
     t.string   "login_name"
-    t.string   "password_digest"
+    t.string   "hashed_password"
     t.string   "display_name"
     t.date     "birthday"
     t.integer  "age"

@@ -5,7 +5,7 @@
 #  id              :integer          not null, primary key
 #  number          :integer
 #  login_name      :string(255)
-#  password_digest :string(255)
+#  hashed_password :string(255)
 #  display_name    :string(255)
 #  birthday        :date
 #  age             :integer
@@ -26,8 +26,6 @@ require 'csv'
 require "kconv"
 require 'nkf'
 class User < ActiveRecord::Base
-  include MiniAuth
-
   has_one :individual_competence
   has_many :emails
   has_many :pitcher_results
