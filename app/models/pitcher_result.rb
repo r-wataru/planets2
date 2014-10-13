@@ -27,6 +27,9 @@ require 'csv'
 require "kconv"
 require 'nkf'
 class PitcherResult < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :game
+
   class << self
     def import_csv
       path = Rails.root.join("db", "seeds", "data", "mla_export_p_pitcher.csv")

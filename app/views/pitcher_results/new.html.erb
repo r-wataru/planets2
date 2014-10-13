@@ -1,0 +1,80 @@
+<div class="panel panel-custom full">
+  <div class="panel-heading">
+    <p>投手成績</p>
+  </div>
+  <div class="panel-body">
+    <table border="1">
+      <tr>
+        <th>選手</th>
+        <th>投球回</th>
+        <th>被安打</th>
+        <th>失点</th>
+        <th>自責点</th>
+        <th>三振</th>
+        <th>勝</th>
+        <th>負</th>
+        <th>ホールド</th>
+        <th>セーブ</th>
+      </tr>
+      <% @pitcher_results.each do |p| %>
+      <tr>
+        <td><%= p.user.try(:display_name) %></td>
+        <td><%= p.pitching_number %></td>
+        <td><%= p.hit %></td>
+        <td><%= p.run %></td>
+        <td><%= p.remorse_point %></td>
+        <td><%= p.strikeouts %></td>
+        <td><%= p.winning %></td>
+        <td><%= p.defeat %></td>
+        <td><%= p.hold_number %></td>
+        <td><%= p.save_number %></td>
+      </tr>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="panel panel-custom full">
+  <div class="panel-heading">
+    <p>野手結果入力</p>
+  </div>
+  <div class="panel-body" style="text-align: center;">
+  <%= form_for @result, url: [ @game, :pitcher_results ], method: :post do |f| %>
+    <%- num = Array(0..30) %>
+    <%- num_row = [0,1]%>
+    <% user = User.all.map{|u| u } %>
+    <% users = user - @game.pitcher_results.map{|i| i.user } %>
+    <table border="1">
+      <tr>
+        <th><%= f.label :user_id, "選手" %></th>
+        <th><%= f.label :pitching_number, "投球回" %></th>
+        <th><%= f.label :hit, "被安打" %></th>
+        <th><%= f.label :run, "失点" %></th>
+        <th><%= f.label :remorse_point, "自責点" %></th>
+        <th><%= f.label :strikeouts, "三振" %></th>
+        <th><%= f.label :winning, "勝" %></th>
+        <th><%= f.label :defeat, "負" %></th>
+        <th><%= f.label :hold_number, "ホールド" %></th>
+        <th><%= f.label :save_number, "セーブ" %></th>
+      </tr>
+      <tr>
+        <td>
+          <%= f.select :user_id, users.map{|u| [ u.display_name, u.id ]} %>
+        </td>
+        <td><%= f.select :pitching_number, num %></td>
+        <td><%= f.select :hit, num %></td>
+        <td><%= f.select :run, num %></td>
+        <td><%= f.select :remorse_point, num %></td>
+        <td><%= f.select :strikeouts, num %></td>
+        <td><%= f.select :winning, num_row %></td>
+        <td><%= f.select :defeat, num_row %></td>
+        <td><%= f.select :hold_number, num_row %></td>
+        <td><%= f.select :save_number, num_row %></td>
+        <%= check_box_tag :next_action %>
+      </tr>
+    </table>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">作成して野手へ</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">もう一人へ</button>
+  <% end %>
+  </div>
+</div>

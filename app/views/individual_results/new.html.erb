@@ -1,0 +1,125 @@
+<div class="panel panel-custom full">
+  <div class="panel-heading">
+    <p>野手成績</p>
+  </div>
+  <div class="panel-body">
+    <table border="1">
+      <tr>
+        <th>選手</th>
+        <th>打席</th>
+        <th>打数</th>
+        <th>単打</th>
+        <th>二塁打</th>
+        <th>三塁打</th>
+        <th>本塁打</th>
+        <th>四球</th>
+        <th>死球</th>
+        <th>犠打</th>
+        <th>犠飛</th>
+        <th>失策出塁</th>
+        <th>内ゴロ</th>
+        <th>外ゴロ</th>
+        <th>内飛</th>
+        <th>外飛</th>
+        <th>内直</th>
+        <th>外直</th>
+        <th>三振</th>
+        <th>打点</th>
+        <th>得点</th>
+        <th>盗塁</th>
+      </tr>
+      <% @individual_results.each do |r| %>
+      <tr>
+        <th><%= r.user.try(:display_name) %>
+        <th><%= r.plate_appearances %></th>
+        <th><%= r.at_bats %></th>
+        <th><%= r.single_hits %></th>
+        <th><%= r.double_hits %></th>
+        <th><%= r.triple_hits %></th>
+        <th><%= r.home_run %></th>
+        <th><%= r.base_on_balls %></th>
+        <th><%= r.hit_by_pitches %></th>
+        <th><%= r.sacrifice_bunts %></th>
+        <th><%= r.sacrifice_flies %></th>
+        <th><%= r.gaffe %></th>
+        <th><%= r.infield_grounder %></th>
+        <th><%= r.outfield_grounder %></th>
+        <th><%= r.infield_fly %></th>
+        <th><%= r.outfield_fly %></th>
+        <th><%= r.infield_linera %></th>
+        <th><%= r.out_linera %></th>
+        <th><%= r.strikeouts %></th>
+        <th><%= r.runs_batted_in %></th>
+        <th><%= r.runs_scored %></th>
+        <th><%= r.stolen_bases %></th>
+      </tr>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="panel panel-custom full">
+  <div class="panel-heading">
+    <p>野手結果入力</p>
+  </div>
+  <div class="panel-body" style="text-align: center;">
+  <%= form_for @result, url: [ @game, :individual_results ], method: :post do |f| %>
+    <%- num = Array(0..100) %>
+    <% user = User.all.map{|u| u } %>
+    <% users = user - @game.individual_results.map{|i| i.user } %>
+    <table border="1">
+      <tr>
+        <th><%= f.label :user_id, "選手" %>
+        <th><%= f.label :plate_appearances, "打席" %></th>
+        <th><%= f.label :at_bats, "打数" %></th>
+        <th><%= f.label :single_hits, "単打" %></th>
+        <th><%= f.label :double_hits, "二塁打" %></th>
+        <th><%= f.label :triple_hits, "三塁打" %></th>
+        <th><%= f.label :home_run, "本塁打" %></th>
+        <th><%= f.label :base_on_balls, "四球" %></th>
+        <th><%= f.label :hit_by_pitches, "死球" %></th>
+        <th><%= f.label :sacrifice_bunts, "犠打" %></th>
+        <th><%= f.label :sacrifice_flies, "犠飛" %></th>
+        <th><%= f.label :gaffe, "失策出塁" %></th>
+        <th><%= f.label :infield_grounder, "内ゴロ" %></th>
+        <th><%= f.label :outfield_grounder, "外ゴロ" %></th>
+        <th><%= f.label :infield_fly, "内飛" %></th>
+        <th><%= f.label :outfield_fly, "外飛" %></th>
+        <th><%= f.label :infield_linera, "内直" %></th>
+        <th><%= f.label :out_linera, "外直" %></th>
+        <th><%= f.label :strikeouts, "三振" %></th>
+        <th><%= f.label :runs_batted_in, "打点" %></th>
+        <th><%= f.label :runs_scored, "得点" %></th>
+        <th><%= f.label :stolen_bases, "盗塁" %></th>
+      </tr>
+      <tr>
+        <td>
+          <%= f.select :user_id, users.map{|u| [ u.display_name, u.id ]} %>
+        </td>
+        <td><%= f.select :plate_appearances, num %></td>
+        <td><%= f.select :at_bats, num %></td>
+        <td><%= f.select :single_hits, num %></td>
+        <td><%= f.select :double_hits, num %></td>
+        <td><%= f.select :triple_hits, num %></td>
+        <td><%= f.select :home_run, num %></td>
+        <td><%= f.select :base_on_balls, num %></td>
+        <td><%= f.select :hit_by_pitches, num %></td>
+        <td><%= f.select :sacrifice_bunts, num %></td>
+        <td><%= f.select :sacrifice_flies, num %></td>
+        <td><%= f.select :gaffe, num %></td>
+        <td><%= f.select :infield_grounder, num %></td>
+        <td><%= f.select :outfield_grounder, num %></td>
+        <td><%= f.select :infield_fly, num %></td>
+        <td><%= f.select :outfield_fly, num %></td>
+        <td><%= f.select :infield_linera, num %></td>
+        <td><%= f.select :out_linera, num %></td>
+        <td><%= f.select :strikeouts, num %></td>
+        <td><%= f.select :runs_batted_in, num %></td>
+        <td><%= f.select :runs_scored, num %></td>
+        <td><%= f.select :stolen_bases, num %></td>
+      </tr>
+    </table>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">作成</button>
+  <% end %>
+  </div>
+</div>

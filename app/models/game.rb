@@ -51,8 +51,12 @@ require 'nkf'
 class Game < ActiveRecord::Base
   belongs_to :season
   has_many :individual_results
+  has_many :pitcher_results
 
   scope :active, ->{ where(deleted_at: nil) }
+
+  store :result1, accessors: [ :top, :one, :two, :three, :four, :five, :six, :seven, :eight, :nine, :total ]
+  store :result2, accessors: [ :bottom, :one_2, :two_2, :three_2, :four_2, :five_2, :six_2, :seven_2, :eight_2, :nine_2, :total_2 ]
 
   def display_winning
     display = ""

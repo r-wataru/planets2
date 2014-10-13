@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get "auth/failure", to: "sessions#failure"
 
   resources :results
-
+  resources :games do
+    resources :individual_results
+    resources :pitcher_results
+  end
   resources :schedules
 end

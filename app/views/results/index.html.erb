@@ -1,3 +1,6 @@
+<%= link_to "新規作成", :new_game, class: "btn-btn-lg btn-primary btn-block" %>
+<br/>
+
 <div class="panel panel-custom full">
   <div class="panel-heading">
     <p>結果</p>
@@ -15,9 +18,9 @@
       防御率：<%= d %>
       <%
         a = @season.games.map(&:at_bats).inject(:+)
-        t = @season.games.map(&:single).inject(:+) + 
-          @season.games.map(&:double).inject(:+) + 
-          @season.games.map(&:triple).inject(:+) + 
+        t = @season.games.map(&:single).inject(:+) +
+          @season.games.map(&:double).inject(:+) +
+          @season.games.map(&:triple).inject(:+) +
           @season.games.map(&:home_run).inject(:+)
       %>
       打率：<%= sprintf( "%.3f", t.quo(a).to_f.round(3)) %>
