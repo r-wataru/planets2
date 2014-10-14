@@ -75,6 +75,14 @@ class Game < ActiveRecord::Base
     return display
   end
 
+  def total_update(result)
+    self.pitching_number = self.pitching_number.to_i + result.pitching_number.to_i
+    self.hit = self.hit.to_i + result.hit.to_i
+    self.run = self.run.to_i + result.run.to_i
+    self.get_strikeouts = self.get_strikeouts.to_i + result.strikeouts.to_i
+    self.save
+  end
+
   class << self
     def import_csv
       path = Rails.root.join("db", "seeds", "data", "mla_export_p_game.csv")

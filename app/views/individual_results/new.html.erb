@@ -14,7 +14,7 @@
       <%- num = Array(0..100) %>
       <% user = User.all.map{|u| u } %>
       <% users = user - @game.individual_results.map{|i| i.user } %>
-      <%= render "individual_resutls/form", f: f, num: num, users: users %>
+      <%= render "individual_results/form", f: f, num: num, users: users %>
       <button class="btn btn-lg btn-primary btn-block" type="submit">作成</button>
     <% end %>
   </div>

@@ -11,6 +11,7 @@ class PitcherResultsController < ApplicationController
     @result = @game.pitcher_results.new pitcher_params
     @result.updating_result = true
     if @result.save
+      @game.total_update(@result)
       flash.notice = "完了しました。"
       if params[:next_action].present?
         redirect_to [ :new, @game, :individual_result ]

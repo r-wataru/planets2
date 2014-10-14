@@ -18,6 +18,7 @@
           <th>セーブ</th>
         </tr>
         <% @pitcher_results.each do |p| %>
+          <% next if p.user.blank? %>
           <tr>
             <td><%= p.user.try(:display_name) %></td>
             <td><%= p.pitching_number %></td>
