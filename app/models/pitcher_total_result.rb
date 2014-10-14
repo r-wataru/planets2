@@ -32,6 +32,16 @@ class PitcherTotalResult < ActiveRecord::Base
   belongs_to :season
   serialize :set_games
 
+  attr_accessor :updating_total
+
+  before_save do
+    if self.updating_total
+      self.winning_rate = Rate.winning_rate(self)
+      self.struck_out_rate = Rate.struck_out_rate(self)
+      self.earned_run_average = Rate.earned_run_average(self)
+    end
+  end
+
   def update_data(game)
     result = user.pitcher_results.find_by(game_id: game.id)
     if self.set_games.nil?
@@ -54,6 +64,28 @@ class PitcherTotalResult < ActiveRecord::Base
   end
 
   class << self
+    def update_or_create(result)
+      u = result.user
+      s = result.game.season
+      t = PitcherTotalResult.where(user_id: u.id, season_id: s.id).first
+      if t.present?
+        t.pitching_number += result.pitching_number.to_i
+        t.hit += result.hit.to_i
+        t.run += result.run.to_i
+        t.remorse_point += result.remorse_point.to_i
+        t.strikeouts += result.strikeouts.to_i
+        t.winning += result.winning.to_i
+        t.defeat += result.defeat.to_i
+        t.hold_number += result.hold_number.to_i
+        t.save_number += result.save_number.to_i
+        t.set_games << result.game.id
+        t.updating_total = true
+        t.save
+      else
+        self.new_data(result.user,result.game.season,result.game)
+      end
+    end
+
     def new_data(user,season,game)
       array = [game.id]
       unless user.pitcher_results.find_by(game_id: game.id).nil?

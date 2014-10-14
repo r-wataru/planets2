@@ -1,0 +1,129 @@
+<div class="panel panel-custom full">
+  <div class="panel-heading">
+    <p>試合結果</p>
+  </div>
+  <div class="panel-body" style="text-align: center;">
+    <table border="1">
+      <tr>
+        <th>シーズン</th>
+        <th>試合名</th>
+        <th>試合日</th>
+        <th>結果</th>
+        <th>勝負</th>
+        <th>コメント</th>
+      </tr>
+      <tr>
+        <td><%= @game.season.year %></td>
+        <td><%= @game.name %></td>
+        <td><%= @game.played_at.strftime("%Y/%m/%d") %></td>
+        <td><%= @game.total_result %></td>
+        <td><%= @game.winning %></td>
+        <td><%= @game.description %></td>
+      </tr>
+    </table>
+
+    <table border="1">
+      <tr>
+        <th>チーム名</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>T</th>
+      </tr>
+      <tr>
+        <td><%= @game.top %></td>
+        <td><%= @game.one %></td>
+        <td><%= @game.two %></td>
+        <td><%= @game.three %></td>
+        <td><%= @game.four %></td>
+        <td><%= @game.five %></td>
+        <td><%= @game.six %></td>
+        <td><%= @game.seven %></td>
+        <td><%= @game.eight %></td>
+        <td><%= @game.nine %></td>
+        <td><%= @game.total %></td>
+      </tr>
+      <tr>
+        <td><%= @game.bottom %></td>
+        <td><%= @game.one_2 %></td>
+        <td><%= @game.two_2 %></td>
+        <td><%= @game.three_2 %></td>
+        <td><%= @game.four_2 %></td>
+        <td><%= @game.five_2 %></td>
+        <td><%= @game.six_2 %></td>
+        <td><%= @game.seven_2 %></td>
+        <td><%= @game.eight_2 %></td>
+        <td><%= @game.nine_2 %></td>
+        <td><%= @game.total_2 %></td>
+      </tr>
+    </table>
+
+    <table border="1">
+      <tr>
+        <th>打席</th>
+        <th>打数</th>
+        <th>単打</th>
+        <th>二塁打</th>
+        <th>三塁打</th>
+        <th>本塁打</th>
+        <th>四球</th>
+        <th>死球</th>
+        <th>犠打</th>
+        <th>犠飛</th>
+        <th>失策出塁</th>
+      </tr>
+      <tr>
+        <td><%= @game.plate_appearances %></td>
+        <td><%= @game.at_bats %></td>
+        <td><%= @game.single %></td>
+        <td><%= @game.double %></td>
+        <td><%= @game.triple %></td>
+        <td><%= @game.home_run %></td>
+        <td><%= @game.base_on_balls %></td>
+        <td><%= @game.hit_by_pitches %></td>
+        <td><%= @game.sacrifice_bunts %></td>
+        <td><%= @game.sacrifice_flies %></td>
+        <td><%= @game.gaffe %></td>
+      </tr>
+      <tr>
+        <th>内ゴロ</th>
+        <th>外ゴロ</th>
+        <th>内飛</th>
+        <th>外飛</th>
+        <th>内直</th>
+        <th>外直</th>
+        <th>三振</th>
+        <th>打点</th>
+        <th>得点</th>
+        <th>盗塁</th>
+        <th>投球回</th>
+        <th>被安打</th>
+        <th>失点</th>
+        <th>奪三振</th>
+      </tr>
+      <tr>
+        <td><%= @game.infield_grounder %></td>
+        <td><%= @game.outfield_grounder %></td>
+        <td><%= @game.infield_fly %></td>
+        <td><%= @game.outfield_fly %></td>
+        <td><%= @game.infield_linera %></td>
+        <td><%= @game.out_linera %></td>
+        <td><%= @game.strikeouts %></td>
+        <td><%= @game.runs_batted_in %></td>
+        <td><%= @game.runs_scored %></td>
+        <td><%= @game.stolen_bases %></td>
+        <td><%= @game.pitching_number %></td>
+        <td><%= @game.hit %></td>
+        <td><%= @game.run %></td>
+        <td><%= @game.get_strikeouts %></td>
+      </tr>
+    </table>
+
+  </div>
+</div>

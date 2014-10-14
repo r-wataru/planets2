@@ -14,7 +14,7 @@
     <%- num = Array(0..30) %>
     <%- num_row = [0,1]%>
     <% user = User.all.map{|u| u } %>
-    <% users = user - Game.find(@game.id).pitcher_results.map{|i| i.user } %>
+    <% users = user - @game.pitcher_results.map{|i| i.user } %>
     <%= render "pitcher_results/form", f: f, num: num, num_row: num_row, users: users %>
     <button class="btn btn-lg btn-primary btn-block" type="submit">作成して野手へ</button>
     <button class="btn btn-lg btn-primary btn-block" type="submit">もう一人へ</button>

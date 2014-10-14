@@ -1,10 +1,12 @@
 class GamesController < ApplicationController
   def new
-    @game = Game.new
+    season = Season.find_by(use: true)
+    @game = Game.new(winning: 0, season_id: season.id)
   end
 
   def create
     @game = Game.new game_params
+    @game.creating_game = true
     if @game.save
       flash.notice = "登録しました。"
       redirect_to [ :new, @game, :pitcher_result ]

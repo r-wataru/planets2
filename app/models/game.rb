@@ -58,6 +58,11 @@ class Game < ActiveRecord::Base
   store :result1, accessors: [ :top, :one, :two, :three, :four, :five, :six, :seven, :eight, :nine, :total ]
   store :result2, accessors: [ :bottom, :one_2, :two_2, :three_2, :four_2, :five_2, :six_2, :seven_2, :eight_2, :nine_2, :total_2 ]
 
+  attr_accessor :creating_game
+
+  validates :name, :total_result, :played_at, :winning, presence: true
+  validates :top, :bottom, presence: { if: -> { creating_game == true } }
+
   def display_winning
     display = ""
     if self.winning == 0

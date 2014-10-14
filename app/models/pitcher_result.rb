@@ -30,6 +30,16 @@ class PitcherResult < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
 
+  validates :pitching_number, numericality: { greater_than: 0 }
+
+  attr_accessor :updating_result
+
+  before_save do
+    if updating_result
+      PitcherTotalResult.update_or_create(self)
+    end
+  end
+
   class << self
     def import_csv
       path = Rails.root.join("db", "seeds", "data", "mla_export_p_pitcher.csv")

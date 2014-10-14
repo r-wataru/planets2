@@ -2,12 +2,14 @@ class PitcherResultsController < ApplicationController
   def new
     @game = Game.find(params[:game_id])
     @pitcher_results = @game.pitcher_results
+    @individual_results = @game.individual_results
     @result = @game.pitcher_results.new
   end
 
   def create
     @game = Game.find(params[:game_id])
     @result = @game.pitcher_results.new pitcher_params
+    @result.updating_result = true
     if @result.save
       flash.notice = "完了しました。"
       if params[:next_action].present?

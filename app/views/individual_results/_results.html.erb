@@ -1,0 +1,61 @@
+<% if @individual_results.present? && @individual_results.count > 0 %>
+  <div class="panel panel-custom full">
+    <div class="panel-heading">
+      <p>野手成績</p>
+    </div>
+    <div class="panel-body">
+      <table border="1">
+        <tr>
+          <th>選手</th>
+          <th>打席</th>
+          <th>打数</th>
+          <th>単打</th>
+          <th>二塁打</th>
+          <th>三塁打</th>
+          <th>本塁打</th>
+          <th>四球</th>
+          <th>死球</th>
+          <th>犠打</th>
+          <th>犠飛</th>
+          <th>失策出塁</th>
+          <th>内ゴロ</th>
+          <th>外ゴロ</th>
+          <th>内飛</th>
+          <th>外飛</th>
+          <th>内直</th>
+          <th>外直</th>
+          <th>三振</th>
+          <th>打点</th>
+          <th>得点</th>
+          <th>盗塁</th>
+        </tr>
+        <% @individual_results.each do |r| %>
+          <tr>
+            <th><%= r.user.try(:display_name) %>
+            <th><%= r.plate_appearances %></th>
+            <th><%= r.at_bats %></th>
+            <th><%= r.single_hits %></th>
+            <th><%= r.double_hits %></th>
+            <th><%= r.triple_hits %></th>
+            <th><%= r.home_run %></th>
+            <th><%= r.base_on_balls %></th>
+            <th><%= r.hit_by_pitches %></th>
+            <th><%= r.sacrifice_bunts %></th>
+            <th><%= r.sacrifice_flies %></th>
+            <th><%= r.gaffe %></th>
+            <th><%= r.infield_grounder %></th>
+            <th><%= r.outfield_grounder %></th>
+            <th><%= r.infield_fly %></th>
+            <th><%= r.outfield_fly %></th>
+            <th><%= r.infield_linera %></th>
+            <th><%= r.out_linera %></th>
+            <th><%= r.strikeouts %></th>
+            <th><%= r.runs_batted_in %></th>
+            <th><%= r.runs_scored %></th>
+            <th><%= r.stolen_bases %></th>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+<% end %>

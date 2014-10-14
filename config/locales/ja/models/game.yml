@@ -2,10 +2,10 @@ ja:
   activerecord:
     attributes:
       game:
-        name:
-        description:
-        played_at:
-        total_result:
+        name: 試合名
+        description: コメント
+        played_at: 試合日
+        total_result: 試合結果
         result1:
         result2:
         plate_appearances: 打席数
@@ -33,6 +33,8 @@ ja:
         hit: 被安打
         run: 失点
         get_strikeouts: 奪三振
+        top: 先攻チーム
+        bottom: 後攻チーム
       season:
         year: 年度
         name: 大会名

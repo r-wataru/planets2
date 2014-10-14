@@ -7,6 +7,7 @@ gem 'mysql2'
 
 gem "json", "~> 1.8.1"
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc

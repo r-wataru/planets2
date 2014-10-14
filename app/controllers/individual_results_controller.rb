@@ -2,6 +2,7 @@ class IndividualResultsController < ApplicationController
   def new
     @game = Game.find(params[:game_id])
     @individual_results = @game.individual_results
+    @pitcher_results = @game.pitcher_results
     @result = @game.individual_results.new
   end
 
