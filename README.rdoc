@@ -1,6 +1,6 @@
 == README
 
-This is Planets Web Site Demo
+This is Planets Web Site Demo2
 
 Things you may want to cover:
 
